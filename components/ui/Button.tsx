@@ -17,7 +17,7 @@ type Props = {
 };
 
 export function Button({ children, variant = "primary", href, full = false, className = "" }: Props) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-buttons px-6 py-3 text-body font-medium transition-colors ${
+  const cls = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-buttons px-6 py-3 text-body font-medium transition-colors ${
     full ? "w-full" : ""
   } ${variants[variant]} ${className}`;
   if (href) {

@@ -26,9 +26,11 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" href={nav.login.href} className="hidden md:inline-flex">
-            {nav.login.label}
-          </Button>
+          <div className="hidden md:block">
+            <Button variant="ghost" href={nav.login.href}>
+              {nav.login.label}
+            </Button>
+          </div>
           <Button href={nav.cta.href}>{nav.cta.label}</Button>
         </div>
       </Container>
