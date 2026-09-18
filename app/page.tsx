@@ -5,6 +5,8 @@ import { PromiseBand } from "@/components/sections/PromiseBand";
 import { MoneyMapMock } from "@/components/sections/MoneyMapMock";
 import { PressRow } from "@/components/sections/PressRow";
 import { DreamMachine } from "@/components/sections/DreamMachine";
+import { Steps } from "@/components/sections/Steps";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
         <MoneyMapMock />
         <PressRow />
         <DreamMachine />
+        <Steps />
+        <Testimonials />
       </main>
     </>
   );
