@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors — DESIGN.md */
+  --color-forest-floor: #0b7443;
+  --color-deep-moss: #054f31;
+  --color-vivid-leaf: #61bc76;
+  --color-bright-sprout: #039855;
+  --color-mint-wash: #d1fadf;
+  --color-warm-putty: #715039;
+  --color-sandstone: #d1a883;
+  --color-apricot-cream: #fee9d1;
+  --color-paper-white: #ffffff;
+  --color-soft-mist: #eceff4;
+  --color-pale-stone: #f4f4f4;
+  --color-graphite-text: #5b616b;
+  --color-ink-black: #000000;
+
+  /* Typography — Inter substitutes PP Neue Montreal */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-caption: 11px;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: -0.004em;
+  --text-legal: 13px;
+  --text-legal--line-height: 1.5;
+  --text-body: 16px;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: -0.004em;
+  --text-subheading: 20px;
+  --text-subheading--line-height: 1.33;
+  --text-subheading--letter-spacing: -0.004em;
+  --text-heading-sm: 24px;
+  --text-heading-sm--line-height: 1.32;
+  --text-heading-sm--letter-spacing: -0.01em;
+  --text-heading: 38px;
+  --text-heading--line-height: 1.25;
+  --text-heading--letter-spacing: -0.01em;
+  --text-heading-lg: 48px;
+  --text-heading-lg--line-height: 1.2;
+  --text-heading-lg--letter-spacing: -0.01em;
+  --text-display-sm: 45px;
+  --text-display-sm--line-height: 1;
+  --text-display-sm--letter-spacing: -0.019em;
+  --text-display: 60px;
+  --text-display--line-height: 1.1;
+  --text-display--letter-spacing: -0.019em;
+  --text-display-lg: 91px;
+  --text-display-lg--line-height: 0.9;
+  --text-display-lg--letter-spacing: -0.019em;
+
+  /* Spacing & layout */
+  --spacing-section: 80px;
+  --spacing-section-sm: 48px;
+  --spacing-section-lg: 120px;
+  --container-page: 1200px;
+
+  /* Radii */
+  --radius-nav: 12px;
+  --radius-cards: 12px;
+  --radius-buttons: 12px;
+  --radius-video: 12px;
+  --radius-images: 20px;
+  --radius-phone: 40px;
+  --radius-pills: 80px;
+
+  /* Elevation — the only shadow, deepest cards only */
+  --shadow-md: rgba(0, 0, 0, 0.05) 0px 25px 16px 0px, rgba(0, 0, 0, 0.1) 0px 10px 10px 0px, rgba(0, 0, 0, 0.1) 0px 3px 6px 0px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-paper-white);
+    color: var(--color-ink-black);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "tnum";
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-forest-floor);
+    outline-offset: 2px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility bg-mint-glow {
+  background: radial-gradient(120% 90% at 50% 0%, var(--color-mint-wash) 0%, var(--color-paper-white) 75%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
