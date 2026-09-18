@@ -48,6 +48,10 @@
   --text-display-lg: 91px;
   --text-display-lg--line-height: 0.9;
   --text-display-lg--letter-spacing: -0.019em;
+  /* Hero only: scales 45px → 91px with the viewport like the live site */
+  --text-display-fluid: clamp(45px, 5.2vw, 91px);
+  --text-display-fluid--line-height: 0.95;
+  --text-display-fluid--letter-spacing: -0.019em;
 
   /* Spacing & layout */
   --spacing-section: 80px;
@@ -89,7 +93,11 @@
 }
 
 @utility bg-mint-glow {
-  background: radial-gradient(120% 90% at 50% 0%, var(--color-mint-wash) 0%, var(--color-paper-white) 75%);
+  background: radial-gradient(
+    120% 90% at 50% 0%,
+    color-mix(in srgb, var(--color-mint-wash) 55%, var(--color-paper-white)) 0%,
+    var(--color-paper-white) 80%
+  );
 }
 
 .reveal {
