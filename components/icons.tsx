@@ -41,7 +41,7 @@ export function Laurel({ flip = false, ...p }: P & { flip?: boolean }) {
     >
       <path d="M42 4C14 22 8 60 40 98" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
       {LEAVES.map(([x, y, r]) => (
-        <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="5" ry="10" transform={`rotate(${r} ${x} ${y})`} />
+        <ellipse key={`${x}-${y}`} cx={x} cy={y} rx="4" ry="9" transform={`rotate(${r} ${x} ${y})`} />
       ))}
     </svg>
   );
