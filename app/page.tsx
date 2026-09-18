@@ -7,6 +7,10 @@ import { PressRow } from "@/components/sections/PressRow";
 import { DreamMachine } from "@/components/sections/DreamMachine";
 import { Steps } from "@/components/sections/Steps";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Products } from "@/components/sections/Products";
+import { FreeCta } from "@/components/sections/FreeCta";
+import { Faq } from "@/components/sections/Faq";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -21,7 +25,11 @@ export default function Home() {
         <DreamMachine />
         <Steps />
         <Testimonials />
+        <Products />
+        <FreeCta />
+        <Faq />
       </main>
+      <Footer />
     </>
   );
 }
