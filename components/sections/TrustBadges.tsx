@@ -30,12 +30,14 @@ export function TrustBadges() {
           {trust.badges.map((b) => (
             <a key={b.descriptor} href={b.href} className="flex items-center justify-center gap-2">
               <Laurel className="h-40 w-auto text-vivid-leaf" />
-              <div className="w-44">
+              <div className="w-56">
                 <p className="text-heading font-bold">{b.title}</p>
                 <p className="mt-1 text-subheading text-graphite-text">{b.descriptor}</p>
-                <div className="mt-4 flex justify-center">
-                  <Logo logo={b.logo} />
-                </div>
+                {b.logo && (
+                  <div className="mt-4 flex justify-center">
+                    <Logo logo={b.logo} />
+                  </div>
+                )}
               </div>
               <Laurel flip className="h-40 w-auto text-vivid-leaf" />
             </a>

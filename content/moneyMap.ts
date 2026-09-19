@@ -1,20 +1,21 @@
 export type Tone = "cream" | "sand" | "mint" | "stone";
 
+// The phone mock: a client's week as the practitioner sees it on their profile.
 export const moneyMap = {
-  title: "Give every paycheck a plan",
-  subtitle: "Your categorized monthly split",
-  income: { label: "Take-home pay", amount: "$9,125" },
+  title: "Week 5 · Reintroduction",
+  subtitle: "A client’s week at a glance",
+  income: { label: "Terrain zone", amount: "Compensated" },
   split: [
-    { label: "Bills", amount: "$4,375", tone: "sand" },
-    { label: "Spend", amount: "$2,250", tone: "mint" },
-    { label: "Goals", amount: "$2,500", tone: "stone" },
+    { label: "Check-ins", amount: "6 / 7", tone: "sand" },
+    { label: "Water", amount: "8 glasses", tone: "mint" },
+    { label: "Sleep", amount: "7.2 h", tone: "stone" },
   ] satisfies { label: string; amount: string; tone: Tone }[],
-  goalsHeading: "Projected goals timeline",
+  goalsHeading: "This week’s priorities",
   goals: [
-    { n: 1, label: "Vacation fund", amount: "$6,000", when: "JUL 2027" },
-    { n: 2, label: "Home maintenance", amount: "$9,000", when: "JUL 2027" },
-    { n: 3, label: "Retirement", amount: "$9,000", when: "OCT 2026" },
-    { n: 4, label: "Annual / irregular expenses", amount: "$6,000", when: "OCT 2026" },
+    { n: 1, tag: "Reintroduction", label: "Dairy — exposure 2 of 3", amount: "Observe", when: "DAY 4" },
+    { n: 2, tag: "Food + Fiber", label: "Cooked greens daily", amount: "Suggested", when: "BY YOU" },
+    { n: 3, tag: "Stress toolkit", label: "RESTORE practice", amount: "3 of 5", when: "THIS WEEK" },
+    { n: 4, tag: "Weekly check-in", label: "Energy, digestion, sleep", amount: "Due", when: "SUNDAY" },
   ],
-  footnote: "Examples shown for illustrative purposes only.",
+  footnote: "Example client data, for illustration only.",
 };

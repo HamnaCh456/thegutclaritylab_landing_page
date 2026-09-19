@@ -93,18 +93,20 @@ export function Hero() {
         </ul>
 
         <div className="mt-16 flex flex-col items-center gap-3">
-          <div className="flex -space-x-2">
-            {hero.avatars.map((src) => (
-              <Image
-                key={src}
-                src={src}
-                alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-pills border-2 border-paper-white object-cover"
-              />
-            ))}
-          </div>
+          {hero.avatars.length > 0 && (
+            <div className="flex -space-x-2">
+              {hero.avatars.map((src) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-pills border-2 border-paper-white object-cover"
+                />
+              ))}
+            </div>
+          )}
           <p className="text-body font-medium">{hero.trustedLabel}</p>
         </div>
       </Container>

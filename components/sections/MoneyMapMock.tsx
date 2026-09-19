@@ -42,7 +42,7 @@ export function MoneyMapMock() {
               {moneyMap.goals.map((g) => (
                 <li key={g.n} className="flex items-center justify-between gap-3 rounded-cards bg-paper-white px-3 py-2">
                   <span>
-                    <span className="block text-caption uppercase text-graphite-text">Goal {g.n}</span>
+                    <span className="block text-caption uppercase text-graphite-text">{g.tag}</span>
                     <span className="text-body font-medium">{g.label}</span>
                   </span>
                   <span className="text-right">

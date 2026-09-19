@@ -27,13 +27,15 @@ export function Footer() {
           <Leaf className="h-40 w-40 text-ink-black lg:justify-self-end" />
         </div>
 
-        <ul className="mt-16 flex flex-wrap justify-center gap-8">
-          {footer.illustrations.map((il) => (
-            <li key={il.src}>
-              <Image src={il.src} alt={il.alt} width={140} height={140} className="h-28 w-auto" />
-            </li>
-          ))}
-        </ul>
+        {footer.illustrations.length > 0 && (
+          <ul className="mt-16 flex flex-wrap justify-center gap-8">
+            {footer.illustrations.map((il) => (
+              <li key={il.src}>
+                <Image src={il.src} alt={il.alt} width={140} height={140} className="h-28 w-auto" />
+              </li>
+            ))}
+          </ul>
+        )}
 
         <div className="mx-auto mt-16 max-w-4xl space-y-4 text-legal text-graphite-text">
           {footer.legal.map((p) => (

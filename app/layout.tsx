@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fruitful - Your money, finally figured out",
+  title: "Gut Clarity Lab — Run your gut-health practice on one platform",
   description:
-    "Get a personalized money system that automatically puts every dollar to work. Bills, spending, saving, investing - all handled.",
+    "Gut Clarity Lab turns a client’s microbiome test into a 12-week, food-first programme. Daily check-ins, weekly summaries, session prep and Sage — all on one client profile.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,22 +1,23 @@
-import { cdn } from "./cdn";
+// The three programme paths. Each has four tiers that unlock week by week.
+export type Product = { title: string; body: string; tiers: string[] };
 
 export const products = {
-  headline: ["Powered by better-for-you", "financial products."],
+  headline: ["Three paths.", "One 12-week rhythm."],
   items: [
     {
-      title: "Spend",
-      body: "Earn up to 2% cash back² on all of your spending with Fruitful Card. Never carry a balance or get charged interest.",
-      image: cdn("69cfbe6dc5232f89913e70c2/6a96cd38ca88859382a3c874_h-products--01.png"),
+      title: "Metabolic",
+      body: "For clients whose report and terrain point to blood-sugar and energy patterns. Recruit, then integrate, diversify and thrive.",
+      tiers: ["Recruit", "Integrate", "Diversify", "Thrive"],
     },
     {
-      title: "Save",
-      body: "Whether you plan to save or spend it, earn up to 4.00% APY¹ on all your money in Fruitful cash accounts.",
-      image: cdn("69cfbe6dc5232f89913e70c2/6a96cd383c4ef645125c695f_h-products--02.png"),
+      title: "Restore",
+      body: "For a depleted or reactive gut. Re-seed first, rebuild the terrain, expand the diet, then reclaim the foods that were off the table.",
+      tiers: ["Re-seed", "Rebuild", "Expand", "Reclaim"],
     },
     {
-      title: "Invest",
-      body: "A smarter way to start or scale your investing. Tailored portfolios with tailored advice.",
-      image: cdn("69cfbe6dc5232f89913e70c2/6a96cd37eb45c5d8ea66148c_h-products--03.png"),
+      title: "North Star",
+      body: "For clients who want structure more than a protocol. Reset the basics, add structure, explore, and build something they can sustain.",
+      tiers: ["Reset", "Structure", "Explore", "Sustain"],
     },
-  ],
+  ] satisfies Product[],
 };

@@ -9,7 +9,7 @@ export function Nav() {
       <Container className="flex h-20 items-center justify-between gap-4">
         <a href="#" aria-label={`${nav.brand} home`} className="flex items-center gap-1.5 text-ink-black">
           <Leaf className="h-7 w-7" />
-          <span className="text-heading-sm font-semibold tracking-tight">{nav.brand}</span>
+          <span className="whitespace-nowrap text-subheading font-semibold tracking-tight md:text-heading-sm">{nav.brand}</span>
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 rounded-nav bg-soft-mist p-1 md:flex">

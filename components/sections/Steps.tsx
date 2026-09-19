@@ -6,7 +6,7 @@ import { StepArt } from "@/components/art/StepArt";
 
 export function Steps() {
   return (
-    <section aria-labelledby="steps-title" className="py-section-sm md:py-section">
+    <section id="how-it-works" aria-labelledby="steps-title" className="py-section-sm md:py-section">
       <Container className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <h2 id="steps-title" className="text-heading font-medium md:text-heading-lg">

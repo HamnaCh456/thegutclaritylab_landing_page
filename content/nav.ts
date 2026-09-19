@@ -1,11 +1,12 @@
 export type NavLink = { label: string; href: string; hasMenu?: boolean };
 
 export const nav = {
-  brand: "fruitful",
+  brand: "Gut Clarity Lab",
   links: [
-    { label: "Membership", href: "#", hasMenu: true },
-    { label: "Guides", href: "#", hasMenu: false },
+    { label: "How it works", href: "#how-it-works", hasMenu: false },
+    { label: "What clients get", href: "#clients" },
+    { label: "FAQ", href: "#faq" },
   ] satisfies NavLink[],
   login: { label: "Log in", href: "#" },
-  cta: { label: "Get started", href: "#get-started" },
+  cta: { label: "Request access", href: "#get-started" },
 };

@@ -4,7 +4,7 @@ import { Chevron } from "@/components/icons";
 
 export function Faq() {
   return (
-    <section aria-labelledby="faq-title" className="py-section-sm md:py-section">
+    <section id="faq" aria-labelledby="faq-title" className="py-section-sm md:py-section">
       <Container>
         <div className="mx-auto max-w-3xl">
           <h2 id="faq-title" className="text-center text-heading font-medium">

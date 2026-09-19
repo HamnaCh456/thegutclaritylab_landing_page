@@ -1,18 +1,18 @@
 export type StatIcon = "bolt" | "gift";
 
 export const freeCta = {
-  headline: ["Build your future now.", "For free."],
+  headline: ["Bring your first client in", "this week."],
   stats: [
-    { icon: "bolt", label: "~3 minutes to get your Money Map" },
-    { icon: "gift", label: "No payment required" },
+    { icon: "bolt", label: "Under 10 minutes to add a client and send their code" },
+    { icon: "gift", label: "Practitioner directory listing included" },
   ] satisfies { icon: StatIcon; label: string }[],
   bullets: [
-    "Know exactly where every paycheck should go",
-    "Automatically fund bills, spending, savings & goals",
-    "Get 1-on-1 help from a financial professional",
-    "Grow your money with pro investment management",
-    "Earn up to 4.00% APY¹ on all of your cash",
-    "Earn up to 2% cash back on spend²",
+    "Add private clients or run group cohorts",
+    "Enter test markers and generate both guides",
+    "Daily check-ins and weekly summaries on one profile",
+    "Session prep drafted by Sage before every call",
+    "Forms, documents and Food + Fiber suggestions",
+    "Your own logo and name in the client’s sidebar",
   ],
-  cta: { label: "Get my Money Map", href: "#" },
+  cta: { label: "Request practitioner access", href: "#" },
 };

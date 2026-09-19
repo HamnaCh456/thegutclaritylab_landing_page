@@ -18,8 +18,12 @@ function Question({ art }: { art: Extract<Art, { kind: "question" }> }) {
           ))}
         </ul>
       </div>
-      <div className="absolute bottom-0 right-2 h-40 w-32 overflow-hidden rounded-cards bg-sandstone/40">
-        <Image src={art.image} alt="" fill sizes="128px" className="object-cover object-top" />
+      <div className="absolute bottom-0 right-2 flex h-40 w-32 items-center justify-center overflow-hidden rounded-cards bg-sandstone/40 text-warm-putty">
+        {art.image ? (
+          <Image src={art.image} alt="" fill sizes="128px" className="object-cover object-top" />
+        ) : (
+          <Leaf className="h-12 w-12" />
+        )}
       </div>
     </div>
   );

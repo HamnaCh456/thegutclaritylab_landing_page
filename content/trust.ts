@@ -1,45 +1,18 @@
-import { cdn } from "./cdn";
-
 export type BadgeLogo =
   | { kind: "image"; src: string; alt: string; width: number; height: number }
   | { kind: "trustpilot"; label: string };
 
-export type Badge = { title: string; descriptor: string; href: string; logo: BadgeLogo };
+export type Badge = { title: string; descriptor: string; href: string; logo?: BadgeLogo };
+
+const badges: Badge[] = [
+  { title: "12 weeks", descriptor: "One guided programme", href: "#how-it-works" },
+  { title: "3 paths", descriptor: "Metabolic · Restore · North Star", href: "#paths" },
+  { title: "Food-first", descriptor: "Never a diagnosis", href: "#faq" },
+];
 
 export const trust = {
-  eyebrow: "Trusted by Thousands",
-  badges: [
-    {
-      title: "Best",
-      descriptor: "Planning Platform",
-      href: "#",
-      logo: {
-        kind: "image",
-        src: cdn("69cfbe6dc5232f89913e70c2/69cfbe6dc5232f89913e72d1_FinTech.jpg"),
-        alt: "FinTech Breakthrough Awards",
-        width: 87,
-        height: 80,
-      },
-    },
-    {
-      title: "Excellent",
-      descriptor: "Rated 4.8 / 5",
-      href: "https://www.trustpilot.com/review/fruitful.com",
-      logo: { kind: "trustpilot", label: "Trustpilot" },
-    },
-    {
-      title: "Best",
-      descriptor: "Banking Card",
-      href: "#",
-      logo: {
-        kind: "image",
-        src: cdn("69cfbe6dc5232f89913e70c2/69cfbe6dc5232f89913e72d0_tearsheet.jpg"),
-        alt: "Tearsheet",
-        width: 133,
-        height: 82,
-      },
-    },
-  ] satisfies Badge[],
+  eyebrow: "One programme, three paths, food first",
+  badges,
   disclaimer:
-    "Reviews don’t reflect every member’s experience or guarantee future results. Third-party awards use their own criteria and don’t guarantee outcomes.",
+    "Gut Clarity Lab is not a diagnostic tool and Sage never gives medical advice. It is a coaching programme grounded in food, lifestyle and behaviour, with safety rules that always point a client back to you.",
 };

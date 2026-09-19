@@ -8,32 +8,32 @@ export type Step = { n: string; title: string; body: string; art: StepArt };
 
 export const steps = {
   headline: "It’s all built for you.",
-  subheadline: ["Just turn it on,", "and watch it work."],
-  cta: { label: "Get Started", href: "#get-started" },
+  subheadline: ["Add a client,", "and the programme runs."],
+  cta: { label: "Request access", href: "#get-started" },
   items: [
     {
       n: "01",
-      title: "Build It",
-      body: "Answer a few simple questions. In minutes, we'll build a personalized Money Map showing exactly where every paycheck should go.",
+      title: "Add a client",
+      body: "Enter their name and email, choose which test they’re using, and send their access code. Private 1:1 or part of a cohort — your call.",
       art: { kind: "tree" },
     },
     {
       n: "02",
-      title: "Refine it",
-      body: "Meet 1-on-1 with a Fruitful Guide, a CFP® professional who will answer your questions, fine-tune your plan, and activate your money system.",
+      title: "Read the test together",
+      body: "Enter the red, amber and green markers from their report, or import a Tiny Health PDF. The decision tree turns red markers into prioritised, food-first next steps and generates both guides.",
       art: { kind: "chat" },
     },
     {
       n: "03",
-      title: "Turn it on",
-      body: "Accounts are opened, automations are set up, and everything is ready to run. No spreadsheets. No manual transfers.",
-      art: { kind: "switch", label: "Money system on" },
+      title: "Set Week 1",
+      body: "Pick the day Week 1 begins. Warm-up days, the Terrain Readiness Quiz and meeting Sage happen before it; the weekly rhythm takes over after. Pause it any time for illness or travel.",
+      art: { kind: "switch", label: "Programme on" },
     },
     {
       n: "04",
-      title: "Watch it work",
-      body: "Link your paycheck and let Fruitful do the rest. Every paycheck automatically funds your bills, spending, savings, investments, and goals.",
-      art: { kind: "list", rows: ["Bills funded", "Spending funded", "Savings funded", "Investments funded"] },
+      title: "Coach with the picture in front of you",
+      body: "Every check-in lands on the client’s profile. Sage writes a weekly summary and drafts your next session, so you walk into every call prepared.",
+      art: { kind: "list", rows: ["Daily check-ins", "Weekly summary from Sage", "Session prep draft", "Messages hub"] },
     },
   ] satisfies Step[],
 };
