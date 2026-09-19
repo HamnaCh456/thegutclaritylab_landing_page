@@ -2,11 +2,12 @@ import Image from "next/image";
 import { testimonials, type PortraitCard, type ReviewCard } from "@/content/testimonials";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 import { Play, Stars } from "@/components/icons";
 
 function Review({ card }: { card: ReviewCard }) {
   return (
-    <article className="flex flex-col rounded-images bg-paper-white p-6 shadow-md">
+    <article className="card-lift flex h-full flex-col rounded-images bg-paper-white p-6 shadow-md">
       <div className="flex items-center gap-2">
         {card.stars && <Stars className="h-5 w-auto" />}
         <span className="text-body font-medium text-forest-floor">{card.eyebrow}</span>
@@ -61,9 +62,11 @@ export function Testimonials() {
           {testimonials.headline}
         </h2>
         <div className="mt-10 grid grid-flow-dense gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {testimonials.cards.map((c) =>
-            c.kind === "review" ? <Review key={c.title} card={c} /> : <Portrait key={c.name} card={c} />,
-          )}
+          {testimonials.cards.map((c, i) => (
+            <Reveal key={c.kind === "review" ? c.title : c.name} delay={i * 60}>
+              {c.kind === "review" ? <Review card={c} /> : <Portrait card={c} />}
+            </Reveal>
+          ))}
         </div>
         <div className="mt-12 text-center">
           <Button variant="ghost" href={testimonials.cta.href}>

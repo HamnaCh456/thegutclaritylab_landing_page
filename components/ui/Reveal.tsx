@@ -2,7 +2,10 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 
-export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
+type Props = { children: ReactNode; className?: string; delay?: number };
+
+// delay (ms) staggers siblings in a grid; moot under prefers-reduced-motion (no transition).
+export function Reveal({ children, className = "", delay = 0 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,7 +25,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`reveal ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
       {children}
     </div>
   );

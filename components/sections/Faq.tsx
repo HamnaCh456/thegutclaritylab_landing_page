@@ -13,9 +13,11 @@ export function Faq() {
           <div className="mt-10 divide-y divide-soft-mist border-y border-soft-mist">
             {faq.items.map((item, i) => (
               <details key={item.q} open={i === 0} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-subheading font-medium">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-subheading font-medium transition-colors hover:text-forest-floor">
                   <span>{item.q}</span>
-                  <Chevron className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" />
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-pills bg-pale-stone transition-transform group-open:rotate-180">
+                    <Chevron className="h-4 w-4" />
+                  </span>
                 </summary>
                 <div className="mt-4 space-y-4 text-body text-graphite-text">
                   {item.a.map((p) => (

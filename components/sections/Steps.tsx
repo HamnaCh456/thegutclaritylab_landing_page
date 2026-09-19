@@ -24,12 +24,12 @@ export function Steps() {
 
         <ol className="relative space-y-8 lg:pl-16">
           <span aria-hidden="true" className="absolute left-5 top-0 hidden h-full w-0.5 bg-vivid-leaf lg:block" />
-          {steps.items.map((s) => (
+          {steps.items.map((s, i) => (
             <li key={s.n} className="relative">
               <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-pills bg-vivid-leaf text-body font-medium text-paper-white lg:absolute lg:-left-16 lg:top-10 lg:mb-0">
                 {s.n}
               </span>
-              <Reveal className="rounded-images border border-soft-mist bg-paper-white p-8 md:p-10">
+              <Reveal delay={i * 80} className="card-lift rounded-images border border-soft-mist bg-paper-white p-8 md:p-10">
                 <div className="mx-auto h-44 max-w-xs">
                   <StepArt art={s.art} />
                 </div>

@@ -15,7 +15,7 @@ export function Footer() {
                 <ul className="mt-3 space-y-2">
                   {c.links.map((l) => (
                     <li key={l}>
-                      <a href="#" className="text-body text-graphite-text hover:text-ink-black">
+                      <a href="#" className="text-body text-graphite-text underline-offset-4 hover:text-ink-black hover:underline">
                         {l}
                       </a>
                     </li>
@@ -37,7 +37,7 @@ export function Footer() {
           </ul>
         )}
 
-        <div className="mx-auto mt-16 max-w-4xl space-y-4 text-legal text-graphite-text">
+        <div className="mx-auto mt-16 max-w-3xl space-y-4 border-t border-soft-mist pt-8 text-legal text-graphite-text">
           {footer.legal.map((p) => (
             <p key={p}>{p}</p>
           ))}

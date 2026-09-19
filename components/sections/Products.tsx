@@ -36,7 +36,7 @@ export function Products() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {products.items.map((p, i) => (
-            <Reveal key={p.title} className={`rounded-images bg-paper-white p-6 shadow-md ${tilt[i]}`}>
+            <Reveal key={p.title} delay={i * 100} className={`card-lift rounded-images bg-paper-white p-6 shadow-md ${tilt[i]}`}>
               <div className="h-56 rounded-cards bg-pale-stone p-5">
                 <Tiers tiers={p.tiers} />
               </div>

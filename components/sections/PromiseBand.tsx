@@ -16,12 +16,12 @@ export function PromiseBand() {
           </h2>
         </Reveal>
 
-        <div className="mx-auto mt-16 max-w-2xl">
-          <h3 className="text-heading font-medium">{promise.subheadline}</h3>
-          <p className="mt-4 text-subheading text-graphite-text">{promise.body}</p>
+        <div className="mx-auto mt-12 max-w-2xl">
+          <h3 className="text-heading-sm font-semibold">{promise.subheadline}</h3>
+          <p className="mt-3 text-subheading text-graphite-text">{promise.body}</p>
         </div>
 
-        <div className="mt-12">
+        <div className="mx-auto mt-14 max-w-3xl rounded-images border border-soft-mist p-8 md:p-10">
           <p className="text-heading-sm font-semibold">{promise.madeFor.title}</p>
           <p className="mt-1 text-body text-graphite-text">{promise.madeFor.tagline}</p>
           <ul className="mt-6 flex flex-wrap justify-center gap-3">

@@ -197,6 +197,17 @@ Subtle dark gradient at bottom of video frame, white play triangle, timecode in 
 
 - **Elevated Card:** `rgba(0, 0, 0, 0.05) 0px 25px 16px 0px, rgba(0, 0, 0, 0.1) 0px 10px 10px 0px, rgba(0, 0, 0, 0.1) 0px 3px 6px 0px`
 
+### Motion & hover (landing polish, 2026-09-19)
+
+- `card-lift` (utility in `globals.css`): every card's hover — `translateY(-2px)` and the one
+  `--shadow-md`. Cards rest on a `soft-mist` hairline (or already on `shadow-md`); there is no
+  second shadow token.
+- `--animate-float` (7s drift) is for the hero fragments only, always behind `motion-safe:`.
+- `Reveal` takes `delay` (ms); grids stagger siblings by 60–100ms. Reduced motion disables all
+  three.
+- The laurel wreaths from the Fruitful original are retired on the GCL page — they read as
+  awards. The trust row is a three-up stat strip with hairline dividers instead.
+
 ## Imagery
 
 Photography-first: large, warm-toned portrait shots of real people (Guides) filling 20px-radius containers on cream backgrounds. No abstract product mockups, no stock photography, no illustrations except simple laurel-wreath trust badges and small green checkmark icons. Video content is baked into the hero as a full-width embed with a warm beige backdrop, featuring a single person speaking directly to camera — the format is confessional and human, not polished corporate. The warm color temperature of the photography (golden-hour lighting, earth tones in clothing) matches the cream surfaces, creating a unified sunlit palette. Decorative elements are limited to: outlined laurel wreaths in vivid green, small filled checkmarks, and the wordmark leaf icon. No product screenshots, no data visualizations, no abstract geometric graphics.

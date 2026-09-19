@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 
 export function PressRow() {
   return (
-    <section aria-label="Integrations" className="py-12">
+    <section aria-label="Integrations" className="py-section-sm">
       <Container className="text-center">
         <p className="text-body text-graphite-text">{press.caption}</p>
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-3 md:gap-x-6">
@@ -22,7 +22,7 @@ export function PressRow() {
             ) : (
               <li
                 key={it.label}
-                className="rounded-pills border border-soft-mist bg-paper-white px-4 py-2 text-body text-graphite-text"
+                className="rounded-pills border border-soft-mist bg-paper-white px-4 py-2 text-body text-graphite-text transition-colors hover:bg-pale-stone"
               >
                 {it.label}
               </li>

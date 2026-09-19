@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { ComponentType, SVGProps } from "react";
 import { hero, type ChipIcon } from "@/content/hero";
 import { Container } from "@/components/ui/Container";
-import { ArrowUp, Bars, Card, Chart, Coins, Person } from "@/components/icons";
+import { ArrowUp, Bars, Card, Chart, Coins, Leaf, Person } from "@/components/icons";
 
 const chipIcons: Record<ChipIcon, ComponentType<SVGProps<SVGSVGElement>>> = {
   bars: Bars,
@@ -18,7 +18,9 @@ const fragmentTone = {
   stone: "bg-pale-stone text-graphite-text",
 } as const;
 
-const fragmentPos = ["left-[2%] top-[22%]", "right-[2%] top-[18%]", "left-[5%] bottom-[14%]", "right-[6%] bottom-[8%]"];
+// Right-top sits lower than left-top so it clears the end of the widest headline line at 1280px.
+const fragmentPos = ["left-[2%] top-[22%]", "right-[2%] top-[34%]", "left-[5%] bottom-[14%]", "right-[6%] bottom-[8%]"];
+const fragmentTilt = ["-rotate-3", "rotate-2", "rotate-2", "-rotate-2"];
 
 function Fragments() {
   return (
@@ -26,7 +28,8 @@ function Fragments() {
       {hero.fragments.map((f, i) => (
         <div
           key={f.label}
-          className={`absolute w-48 rounded-cards p-4 opacity-50 blur-[2px] ${fragmentPos[i]} ${fragmentTone[f.tone]}`}
+          style={{ animationDelay: `${i * 1.3}s` }}
+          className={`absolute w-48 rounded-cards border border-soft-mist p-4 opacity-90 shadow-md motion-safe:animate-float ${fragmentPos[i]} ${fragmentTilt[i]} ${fragmentTone[f.tone]}`}
         >
           <p className="text-caption uppercase tracking-wide">{f.label}</p>
           <p className="mt-1 text-subheading font-semibold">{f.value}</p>
@@ -59,7 +62,7 @@ export function Hero() {
 
         <div
           role="search"
-          className="mx-auto mt-12 flex max-w-4xl items-center gap-3 rounded-pills border border-soft-mist bg-paper-white p-2 pl-6"
+          className="mx-auto mt-12 flex max-w-4xl items-center gap-3 rounded-pills border border-soft-mist bg-paper-white p-2 pl-6 transition-colors focus-within:border-forest-floor focus-within:ring-2 focus-within:ring-forest-floor/20"
         >
           <input
             type="text"
@@ -83,7 +86,7 @@ export function Hero() {
             return (
               <li
                 key={c.label}
-                className="inline-flex items-center gap-2 rounded-pills border border-soft-mist bg-paper-white px-4 py-2 text-body text-graphite-text"
+                className="inline-flex items-center gap-2 rounded-pills border border-soft-mist bg-paper-white px-4 py-2 text-body text-graphite-text transition-colors hover:bg-pale-stone"
               >
                 <Icon className="h-4 w-4" />
                 {c.label}
@@ -107,7 +110,10 @@ export function Hero() {
               ))}
             </div>
           )}
-          <p className="text-body font-medium">{hero.trustedLabel}</p>
+          <p className="inline-flex items-center gap-2 text-body font-medium text-graphite-text">
+            <Leaf className="h-4 w-4 text-forest-floor" />
+            {hero.trustedLabel}
+          </p>
         </div>
       </Container>
     </section>

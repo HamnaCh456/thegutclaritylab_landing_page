@@ -34,8 +34,8 @@ export function DreamMachine() {
         <Bracket className="mx-auto mt-8 hidden h-24 w-full max-w-3xl text-vivid-leaf md:block" />
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {features.items.map((f) => (
-            <Reveal key={f.title} className={`rounded-images p-6 md:p-8 ${toneClass[f.tone]}`}>
+          {features.items.map((f, i) => (
+            <Reveal key={f.title} delay={i * 80} className={`card-lift rounded-images p-6 md:p-8 ${toneClass[f.tone]}`}>
               <div className="mx-auto h-60 max-w-sm">
                 <FeatureArt art={f.art} />
               </div>

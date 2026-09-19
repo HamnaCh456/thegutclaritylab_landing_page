@@ -36,7 +36,7 @@ export function FreeCta() {
           })}
         </ul>
 
-        <div className="mx-auto mt-10 max-w-3xl rounded-images bg-paper-white p-8 text-left md:p-10">
+        <div className="card-lift mx-auto mt-10 max-w-3xl rounded-images bg-paper-white p-8 text-left md:p-10">
           <ul className="space-y-4">
             {freeCta.bullets.map((b) => (
               <li key={b} className="flex items-center gap-3 text-subheading">
