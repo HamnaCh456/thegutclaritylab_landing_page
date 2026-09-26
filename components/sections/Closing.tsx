@@ -1,0 +1,123 @@
+import Image from "next/image";
+import { anu } from "@/content/anu";
+import { calm, finalCta } from "@/content/cta";
+import { nav } from "@/content/nav";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
+import { Laurel } from "@/components/icons";
+import { Words, seq } from "@/components/ui/Words";
+
+export function Calm() {
+  return (
+    <section aria-labelledby="calm-title" className="py-section-sm md:py-section lg:py-section-lg">
+      <Container className="text-center">
+        <Reveal>
+          <h2 id="calm-title" className="mx-auto max-w-3xl text-heading font-medium md:text-heading-lg">
+            <Words text={calm.headline} />
+          </h2>
+          <p className="stagger-item mt-6 text-subheading text-graphite-text" style={seq(0, { "--base": "400ms" })}>
+            {calm.lead}
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Laurel grow className="sway hidden h-44 w-auto text-vivid-leaf sm:block" />
+            <p className="text-heading font-semibold text-forest-floor md:text-heading-lg">
+              {calm.principle.map((p, i) => (
+                <span key={p} className="stagger-item block" style={seq(i, { "--step": "160ms", "--base": "600ms" })}>
+                  {p}
+                </span>
+              ))}
+            </p>
+            <Laurel grow flip className="sway hidden h-44 w-auto text-vivid-leaf sm:block [animation-delay:-3s]" />
+          </div>
+          <div className="mx-auto mt-8 max-w-2xl space-y-3 text-subheading text-graphite-text">
+            {calm.body.map((p, i) => (
+              <p key={p} className="stagger-item" style={seq(i, { "--step": "120ms", "--base": "900ms" })}>
+                {p}
+              </p>
+            ))}
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+export function AboutAnu() {
+  return (
+    <section id="anu" aria-labelledby="anu-title" className="bg-pale-stone py-section md:py-section-lg">
+      <Container>
+        <Reveal variant="scale" className="mx-auto grid max-w-5xl gap-12 rounded-images bg-paper-white p-8 md:p-12 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-center gap-1">
+              <Laurel grow className="sway h-32 w-auto text-vivid-leaf" />
+              <Image
+                src={anu.photo}
+                alt={anu.name}
+                width={72}
+                height={72}
+                className="stagger-item h-24 w-24 rounded-full object-cover transition-transform duration-500 hover:scale-105"
+                style={seq(0, { "--base": "250ms" })}
+              />
+              <Laurel grow flip className="sway h-32 w-auto text-vivid-leaf [animation-delay:-3s]" />
+            </div>
+            <p className="mt-4 text-subheading font-semibold">{anu.name}</p>
+            <p className="mt-1 max-w-60 text-legal text-graphite-text">{anu.role}</p>
+          </div>
+          <div>
+            <p className="text-body font-medium text-forest-floor">{anu.eyebrow}</p>
+            <h2 id="anu-title" className="mt-3 text-heading font-medium">
+              <Words text={anu.headline} />
+            </h2>
+            <div className="mt-5 space-y-3 text-body text-graphite-text">
+              {anu.bio.map((p, i) => (
+                <p key={p} className="stagger-item" style={seq(i, { "--step": "110ms", "--base": "450ms" })}>
+                  {p}
+                </p>
+              ))}
+            </div>
+            <div className="stagger-item mt-8" style={seq(anu.bio.length, { "--step": "110ms", "--base": "450ms" })}>
+              <Button variant="ghost" href={anu.cta.href} external className="px-6 py-2.5">
+                {anu.cta.label} ↗
+              </Button>
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+export function FinalCta() {
+  return (
+    <section
+      id="start"
+      aria-labelledby="start-title"
+      className="bg-mint-glow relative overflow-hidden py-section-sm md:py-section lg:py-section-lg"
+    >
+      <div aria-hidden="true" className="absolute inset-0">
+        <div className="blob left-[5%] top-[10%] h-[320px] w-[420px] bg-mint-wash" />
+        <div className="blob right-[5%] bottom-0 h-[300px] w-[380px] bg-apricot-cream [animation-delay:-11s]" />
+      </div>
+      <Container className="relative text-center">
+        <Reveal>
+          <Image src={nav.logo} alt="" width={72} height={72} className="mx-auto h-18 w-18 mix-blend-multiply motion-safe:animate-float" />
+          <h2 id="start-title" className="mx-auto mt-6 max-w-2xl text-heading font-medium md:text-heading-lg">
+            <Words text={finalCta.headline} />
+          </h2>
+          <p className="stagger-item mx-auto mt-4 max-w-xl text-subheading text-graphite-text" style={seq(0, { "--base": "400ms" })}>
+            {finalCta.body}
+          </p>
+          <div className="stagger-item mt-10 flex flex-wrap justify-center gap-3" style={seq(1, { "--base": "400ms" })}>
+          <Button href={finalCta.primary.href} className="px-6 py-2.5">
+            {finalCta.primary.label}
+          </Button>
+          <Button variant="ghost" href={finalCta.secondary.href} className="px-6 py-2.5">
+            {finalCta.secondary.label}
+          </Button>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}

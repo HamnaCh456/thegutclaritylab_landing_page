@@ -1,58 +1,120 @@
-export type FeatureArt =
-  | { kind: "question"; prompt: string; options: string[]; selected: number; image?: string }
-  | { kind: "flow"; labels: string[] }
-  | { kind: "toggles"; rows: string[] }
-  | { kind: "timeline"; ticks: string[]; bars: { label: string; pct: number }[] };
+export type ScreenKey = "checkIn" | "mealPhoto" | "recipes" | "plan" | "journey" | "practitioner" | "education";
 
+// `id`, `short` and `points` are used only on /features.
 export type Feature = {
+  id: string;
+  short: string;
   title: string;
   body: string;
-  footnote?: string;
+  points: string[];
+  screen: ScreenKey;
   tone: "cream" | "stone";
-  art: FeatureArt;
 };
 
-const items: Feature[] = [
-    {
-      title: "Built around the client",
-      body: "Their 12-week wellness vision, the path they chose and what they want to notice this week sit at the top of the profile. You coach the person, not the report.",
-      tone: "cream",
-      art: {
-        kind: "question",
-        prompt: "What matters most right now?",
-        options: ["Less bloating after meals", "Steadier energy", "Sleeping through the night"],
-        selected: 0,
-      },
-    },
-    {
-      title: "Full picture",
-      body: "Test markers, the Terrain Readiness Quiz and daily check-ins feed one client profile — the screen you work from in every session.",
-      tone: "stone",
-      art: { kind: "flow", labels: ["Test markers", "Terrain quiz", "Daily check-ins"] },
-    },
-    {
-      title: "Effortless",
-      body: "Add a client, send their access code, set the day Week 1 begins. The app generates both guides and runs the weekly rhythm from there.",
-      tone: "stone",
-      art: { kind: "toggles", rows: ["Access code sent", "Week 1 scheduled", "Guides generated"] },
-    },
-    {
-      title: "Always know where they are",
-      body: "Weeks 1–4 build terrain. Week 5 brings the microbiome results and reintroduction. Week 12 re-tests. Every client’s position is on the roster.",
-      tone: "cream",
-      art: {
-        kind: "timeline",
-        ticks: ["WEEK 1", "WEEK 5", "WEEK 12"],
-        bars: [
-          { label: "Terrain building", pct: 35 },
-          { label: "Reintroduction", pct: 70 },
-          { label: "Re-test", pct: 100 },
-        ],
-      },
-    },
-];
-
 export const features = {
-  headline: ["This is your practice,", "organised."],
-  items,
+  headline: "Everything you need in one place.",
+  items: [
+    {
+      id: "check-ins",
+      short: "Check-ins",
+      title: "Daily Check-Ins",
+      body: "Quickly record how you felt, what you ate, your sleep, energy, stress, movement, and anything you noticed.",
+      points: [
+        "Takes a minute or two a day.",
+        "Sleep, energy, stress, digestion and movement in one entry.",
+        "Sage and your practitioner see the patterns over time.",
+      ],
+      screen: "checkIn",
+      tone: "cream",
+    },
+    {
+      id: "meal-logging",
+      short: "Meal logging",
+      title: "Meal Logging",
+      body: "Take a photo of your meal and Sage can help identify the foods.",
+      points: [
+        "Snap a photo instead of typing every ingredient.",
+        "Check and adjust the foods Sage picks out.",
+        "Meals sit next to how you felt that day.",
+      ],
+      screen: "mealPhoto",
+      tone: "stone",
+    },
+    {
+      id: "recipes",
+      short: "Recipes",
+      title: "Recipes",
+      body: "Find recipes that fit your current stage, with helpful ingredient swaps.",
+      points: [
+        "Filtered to the stage you are in.",
+        "Ingredient swaps when something doesn’t suit you.",
+        "Food-first, everyday cooking.",
+      ],
+      screen: "recipes",
+      tone: "stone",
+    },
+    {
+      id: "plan",
+      short: "Your plan",
+      title: "Your Personal Plan",
+      body: "See your weekly focus, goals, lessons, and next steps in one place.",
+      points: [
+        "One clear focus for the week.",
+        "Lessons and next steps in the order you need them.",
+        "Shaped by your practitioner around you.",
+      ],
+      screen: "plan",
+      tone: "cream",
+    },
+    {
+      id: "journey",
+      short: "Gut journey",
+      title: "Your Gut Journey",
+      body: "Track your starting point and see how things change throughout the programme.",
+      points: [
+        "A clear record of where you started.",
+        "Follow the four stages: Stabilize, Reintroduce, Build, Sustain.",
+        "See progress week by week, not just at the end.",
+      ],
+      screen: "journey",
+      tone: "stone",
+    },
+    {
+      id: "practitioner",
+      short: "Practitioner",
+      title: "Your Practitioner",
+      body: "Message your practitioner, complete forms, book sessions, and share information directly through the app.",
+      points: [
+        "Messages in the same place as your logs.",
+        "Forms and session booking without extra emails.",
+        "Your practitioner sees what you choose to share.",
+      ],
+      screen: "practitioner",
+      tone: "cream",
+    },
+    {
+      id: "education",
+      short: "Education",
+      title: "Education",
+      body: "Learn through short videos and simple lessons designed around each stage of the programme.",
+      points: [
+        "Short videos you can watch any time.",
+        "Lessons matched to each stage.",
+        "Plain language, no jargon.",
+      ],
+      screen: "education",
+      tone: "stone",
+    },
+  ] satisfies Feature[],
+  note: "App screens shown with sample data.",
+};
+
+export const featuresPage = {
+  eyebrow: "Features",
+  headline: ["Everything in GCL,", "in one place."],
+  lead: "Check-ins, meals, recipes, lessons and your practitioner, all inside one app, with Sage guiding you through each week.",
+  jumpLabel: "Jump to",
+  sage: { id: "sage", short: "Sage" },
+  moreLabel: "Explore the 12-week journey",
+  moreHref: "/#journey",
 };

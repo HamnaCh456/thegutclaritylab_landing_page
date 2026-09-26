@@ -1,119 +1,70 @@
 import Image from "next/image";
-import type { ComponentType, SVGProps } from "react";
-import { hero, type ChipIcon } from "@/content/hero";
+import type { CSSProperties } from "react";
+import { Words } from "@/components/ui/Words";
+import { hero } from "@/content/hero";
+import { nav } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
-import { ArrowUp, Bars, Card, Chart, Coins, Leaf, Person } from "@/components/icons";
+import { Button } from "@/components/ui/Button";
+import { HeroVideo } from "@/components/ui/HeroVideo";
 
-const chipIcons: Record<ChipIcon, ComponentType<SVGProps<SVGSVGElement>>> = {
-  bars: Bars,
-  coins: Coins,
-  card: Card,
-  chart: Chart,
-  person: Person,
-};
-
-const fragmentTone = {
-  cream: "bg-apricot-cream text-warm-putty",
-  mint: "bg-mint-wash text-deep-moss",
-  stone: "bg-pale-stone text-graphite-text",
-} as const;
-
-// Right-top sits lower than left-top so it clears the end of the widest headline line at 1280px.
-const fragmentPos = ["left-[2%] top-[22%]", "right-[2%] top-[34%]", "left-[5%] bottom-[14%]", "right-[6%] bottom-[8%]"];
-const fragmentTilt = ["-rotate-3", "rotate-2", "rotate-2", "-rotate-2"];
-
-function Fragments() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden xl:block">
-      {hero.fragments.map((f, i) => (
-        <div
-          key={f.label}
-          style={{ animationDelay: `${i * 1.3}s` }}
-          className={`absolute w-48 rounded-cards border border-soft-mist p-4 opacity-90 shadow-md motion-safe:animate-float ${fragmentPos[i]} ${fragmentTilt[i]} ${fragmentTone[f.tone]}`}
-        >
-          <p className="text-caption uppercase tracking-wide">{f.label}</p>
-          <p className="mt-1 text-subheading font-semibold">{f.value}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
+// Word index where each headline line starts, so the rise runs continuously across lines.
+const wordStarts = hero.headline.map((_, i) =>
+  hero.headline.slice(0, i).reduce((n, l) => n + l.split(" ").length, 0),
+);
 
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="bg-mint-glow relative overflow-hidden">
-      <Fragments />
-      <Container className="relative pt-10 pb-section-sm text-center md:pt-14 md:pb-section lg:pt-16">
-        <h1 id="hero-title" className="mx-auto max-w-5xl text-display-fluid font-medium">
-          {hero.headline.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </h1>
+      <div aria-hidden="true" className="absolute inset-0">
+        <div className="blob left-[-10%] top-[-10%] h-[420px] w-[520px] bg-mint-wash" />
+        <div className="blob right-[-8%] top-[18%] h-[380px] w-[460px] bg-apricot-cream [animation-delay:-8s]" />
+        <div className="blob left-[30%] top-[45%] h-[360px] w-[420px] bg-vivid-leaf/20 [animation-delay:-15s]" />
+      </div>
+      <Container className="relative pt-8 pb-section-sm text-center md:pt-10 lg:pt-10">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:text-left">
+          <div>
+            <h1 id="hero-title" className="words-load mx-auto max-w-2xl text-display-split font-medium lg:mx-0">
+              {hero.headline.map((line, i) => (
+                <span key={line} className="block">
+                  <Words text={line} start={wordStarts[i]} />
+                </span>
+              ))}
+            </h1>
 
-        <p className="mx-auto mt-8 max-w-3xl text-subheading text-graphite-text">
-          {hero.subhead.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
-
-        <div
-          role="search"
-          className="mx-auto mt-12 flex max-w-4xl items-center gap-3 rounded-pills border border-soft-mist bg-paper-white p-2 pl-6 transition-colors focus-within:border-forest-floor focus-within:ring-2 focus-within:ring-forest-floor/20"
-        >
-          <input
-            type="text"
-            readOnly
-            placeholder={hero.inputPlaceholder}
-            aria-label={hero.inputPlaceholder}
-            className="min-w-0 flex-1 bg-transparent text-subheading text-ink-black outline-none placeholder:text-graphite-text"
-          />
-          <a
-            href="#get-started"
-            aria-label={hero.submitLabel}
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-pills bg-forest-floor text-paper-white transition-colors hover:bg-deep-moss"
-          >
-            <ArrowUp className="h-6 w-6" />
-          </a>
-        </div>
-
-        <ul className="mt-6 flex flex-wrap justify-center gap-3">
-          {hero.chips.map((c) => {
-            const Icon = chipIcons[c.icon];
-            return (
-              <li
-                key={c.label}
-                className="inline-flex items-center gap-2 rounded-pills border border-soft-mist bg-paper-white px-4 py-2 text-body text-graphite-text transition-colors hover:bg-pale-stone"
-              >
-                <Icon className="h-4 w-4" />
-                {c.label}
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="mt-16 flex flex-col items-center gap-3">
-          {hero.avatars.length > 0 && (
-            <div className="flex -space-x-2">
-              {hero.avatars.map((src) => (
-                <Image
-                  key={src}
-                  src={src}
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 rounded-pills border-2 border-paper-white object-cover"
-                />
+            <div
+              className="load-in mx-auto mt-6 max-w-xl space-y-2 text-body text-graphite-text lg:mx-0"
+              style={{ "--d": "550ms" } as CSSProperties}
+            >
+              {hero.subhead.map((p) => (
+                <p key={p}>{p}</p>
               ))}
             </div>
-          )}
-          <p className="inline-flex items-center gap-2 text-body font-medium text-graphite-text">
-            <Leaf className="h-4 w-4 text-forest-floor" />
-            {hero.trustedLabel}
-          </p>
+
+            <div
+              className="load-in mt-8 flex flex-wrap justify-center gap-3 lg:justify-start"
+              style={{ "--d": "700ms" } as CSSProperties}
+            >
+              <Button href={hero.primary.href} className="px-6 py-2.5">
+                {hero.primary.label}
+              </Button>
+              <Button variant="ghost" href={hero.secondary.href} className="px-6 py-2.5">
+                {hero.secondary.label}
+              </Button>
+            </div>
+
+            <a
+              href="#anu"
+              className="load-in mt-6 inline-flex items-center gap-2 text-body font-medium text-graphite-text underline-offset-4 hover:text-ink-black hover:underline"
+              style={{ "--d": "850ms" } as CSSProperties}
+            >
+              <Image src={nav.logo} alt="" width={24} height={24} className="h-6 w-6 mix-blend-multiply" />
+              {hero.trustedLabel}
+            </a>
+          </div>
+
+          <div className="load-in relative mx-auto w-full max-w-lg lg:max-w-none" style={{ "--d": "450ms" } as CSSProperties}>
+            <HeroVideo />
+          </div>
         </div>
       </Container>
     </section>

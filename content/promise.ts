@@ -1,10 +1,18 @@
 export const promise = {
-  headline: ["We don’t just show the test results.", "We turn them into a plan."],
-  subheadline: "Clarity from a noisy report.",
-  body: "A microbiome report has dozens of markers. Gut Clarity Lab encodes Anu Simh’s clinical decision tree, so red markers become a short, prioritised list of food-first next steps — one guide for you, one for your client.",
-  madeFor: {
-    title: "Made for the way you practise.",
-    tagline: "Private clients, group cohorts, or both.",
-    pills: ["Private 1:1 clients", "Group cohorts", "Zoom sessions", "Your own branding"],
-  },
+  headline: "Your gut health doesn’t have to feel complicated.",
+  body: [
+    "Gut health information can be overwhelming.",
+    "Test results, food lists, symptoms, conflicting advice. It can be hard to know what actually matters for you.",
+    "Gut Clarity Lab brings it all together in one simple, guided journey.",
+  ],
+  learnLabel: "You learn to:",
+  learn: [
+    "Notice your own patterns",
+    "Understand which foods work for you",
+    "Make small, practical changes",
+    "Slowly bring foods back into your diet",
+    "Build more variety over time",
+    "Create habits that fit your real life",
+  ],
+  closing: ["No fear.", "No unnecessary restriction.", "No pressure to be perfect."],
 };

@@ -1,12 +1,16 @@
-export type NavLink = { label: string; href: string; hasMenu?: boolean };
+export type NavLink = { label: string; href: string };
 
+// Root-relative so the same links work from /features.
 export const nav = {
   brand: "Gut Clarity Lab",
+  logo: "/app/gcl-logo.jpeg",
+  home: "/",
   links: [
-    { label: "How it works", href: "#how-it-works", hasMenu: false },
-    { label: "What clients get", href: "#clients" },
-    { label: "FAQ", href: "#faq" },
+    { label: "The journey", href: "/#journey" },
+    { label: "Sage", href: "/#sage" },
+    { label: "Features", href: "/features" },
+    { label: "About Anu", href: "/#anu" },
   ] satisfies NavLink[],
   login: { label: "Log in", href: "#" },
-  cta: { label: "Request access", href: "#get-started" },
+  cta: { label: "Get Started", href: "/#start" },
 };

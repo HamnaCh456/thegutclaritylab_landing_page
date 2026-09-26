@@ -1,22 +1,30 @@
 import Image from "next/image";
 import { footer } from "@/content/footer";
 import { Container } from "@/components/ui/Container";
-import { Leaf } from "@/components/icons";
+import { Reveal } from "@/components/ui/Reveal";
+import { seq } from "@/components/ui/Words";
 
 export function Footer() {
   return (
     <footer className="border-t border-soft-mist py-section-sm md:py-section">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {footer.columns.map((c) => (
-              <div key={c.heading}>
+        <Reveal className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
+          <div>
+            <div className="flex items-center gap-3">
+              <Image src={footer.logo} alt="" width={64} height={64} className="h-16 w-16 mix-blend-multiply" />
+              <p className="text-heading-sm font-semibold">{footer.brand}</p>
+            </div>
+            <p className="mt-4 text-body text-graphite-text">{footer.tagline}</p>
+          </div>
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-8 md:grid-cols-3">
+            {footer.columns.map((c, i) => (
+              <div key={c.heading} className="stagger-item" style={seq(i, { "--step": "120ms" })}>
                 <p className="text-body font-medium">{c.heading}</p>
                 <ul className="mt-3 space-y-2">
                   {c.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="text-body text-graphite-text underline-offset-4 hover:text-ink-black hover:underline">
-                        {l}
+                    <li key={l.label}>
+                      <a href={l.href} className="inline-block text-body text-graphite-text underline-offset-4 transition-[color,translate] duration-300 hover:translate-x-1 hover:text-ink-black hover:underline">
+                        {l.label}
                       </a>
                     </li>
                   ))}
@@ -24,20 +32,9 @@ export function Footer() {
               </div>
             ))}
           </nav>
-          <Leaf className="h-40 w-40 text-ink-black lg:justify-self-end" />
-        </div>
+        </Reveal>
 
-        {footer.illustrations.length > 0 && (
-          <ul className="mt-16 flex flex-wrap justify-center gap-8">
-            {footer.illustrations.map((il) => (
-              <li key={il.src}>
-                <Image src={il.src} alt={il.alt} width={140} height={140} className="h-28 w-auto" />
-              </li>
-            ))}
-          </ul>
-        )}
-
-        <div className="mx-auto mt-16 max-w-3xl space-y-4 border-t border-soft-mist pt-8 text-legal text-graphite-text">
+        <div className="mt-16 space-y-4 border-t border-soft-mist pt-8 text-legal text-graphite-text">
           {footer.legal.map((p) => (
             <p key={p}>{p}</p>
           ))}

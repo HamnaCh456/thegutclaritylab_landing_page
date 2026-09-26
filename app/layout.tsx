@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter, Karla } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
+import { SmoothScroll } from "@/components/ui/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,16 +11,24 @@ const inter = Inter({
   display: "swap",
 });
 
+// The GCL app's own faces, used only inside the recreated app screens.
+const fraunces = Fraunces({ subsets: ["latin"], weight: ["500"], variable: "--font-fraunces", display: "swap" });
+const karla = Karla({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-karla", display: "swap" });
+
 export const metadata: Metadata = {
-  title: "Gut Clarity Lab — Run your gut-health practice on one platform",
+  title: "Gut Clarity Lab — Feel better about your gut, one step at a time",
   description:
-    "Gut Clarity Lab turns a client’s microbiome test into a 12-week, food-first programme. Daily check-ins, weekly summaries, session prep and Sage — all on one client profile.",
+    "A science-backed, food-first 12-week programme that helps you understand your body, build better habits and create a healthier relationship with food. Guided by your practitioner and Sage.",
+  icons: { icon: "/app/gcl-logo.jpeg" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${karla.variable}`}>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

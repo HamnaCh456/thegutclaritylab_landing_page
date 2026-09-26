@@ -1,33 +1,25 @@
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
-import { TrustBadges } from "@/components/sections/TrustBadges";
-import { PromiseBand } from "@/components/sections/PromiseBand";
-import { MoneyMapMock } from "@/components/sections/MoneyMapMock";
-import { PressRow } from "@/components/sections/PressRow";
-import { DreamMachine } from "@/components/sections/DreamMachine";
-import { Steps } from "@/components/sections/Steps";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Products } from "@/components/sections/Products";
-import { FreeCta } from "@/components/sections/FreeCta";
-import { Faq } from "@/components/sections/Faq";
+import { Journey } from "@/components/sections/Journey";
+import { ResultsSection, SageSection } from "@/components/sections/Showcase";
+import { Features } from "@/components/sections/Features";
+import { AboutAnu, Calm, FinalCta } from "@/components/sections/Closing";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
     <>
+      <div aria-hidden="true" className="scroll-progress" />
       <Nav />
       <main>
         <Hero />
-        <TrustBadges />
-        <PromiseBand />
-        <MoneyMapMock />
-        <PressRow />
-        <DreamMachine />
-        <Steps />
-        <Testimonials />
-        <Products />
-        <FreeCta />
-        <Faq />
+        <Journey />
+        <SageSection />
+        <ResultsSection />
+        <Features />
+        <Calm />
+        <AboutAnu />
+        <FinalCta />
       </main>
       <Footer />
     </>

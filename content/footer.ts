@@ -1,15 +1,38 @@
+import type { NavLink } from "@/content/nav";
+import { site } from "@/content/site";
+
 export const footer = {
+  brand: "Gut Clarity Lab",
+  logo: "/app/gcl-logo.jpeg",
+  tagline: "Science-backed. Food-first. Guided by Sage.",
   columns: [
-    { heading: "Platform", links: ["For practitioners", "For clients", "Practitioner directory", "Recipes"] },
-    { heading: "Programme", links: ["The 12-week rhythm", "Three paths", "Sage", "Safety"] },
-    { heading: "Company", links: ["About", "Contact", "Privacy", "Terms"] },
-    { heading: "Support", links: ["Help Desk"] },
-  ],
-  // Leave empty to hide the illustration row; add /public line illustrations later.
-  illustrations: [] as { src: string; alt: string }[],
+    {
+      heading: "Programme",
+      links: [
+        { label: "The 12-week journey", href: "/#journey" },
+        { label: "Sage", href: "/#sage" },
+        { label: "Features", href: "/features" },
+      ],
+    },
+    {
+      heading: "Company",
+      links: [
+        { label: "About", href: "/#anu" },
+        { label: "Find a Practitioner", href: site.practitioners },
+        { label: "Contact", href: site.contact },
+        { label: "Help Desk", href: site.support },
+      ],
+    },
+    {
+      heading: "Legal",
+      links: [
+        { label: "Privacy", href: site.privacy },
+        { label: "Terms", href: site.terms },
+      ],
+    },
+  ] satisfies { heading: string; links: NavLink[] }[],
   legal: [
-    "Gut Clarity Lab is a coaching programme, not a diagnostic tool. Nothing in the app or on this page is medical advice, and no part of it replaces care from a qualified clinician.",
-    "Sage is an in-app coaching companion focused on food, lifestyle and behaviour. It never gives medical advice. Safety rules for red-flag symptoms, mental-health crises and drug interactions are enforced on the server and always point a client back to their practitioner.",
+    "GCL provides education and coaching support. It is not medical care and does not diagnose, treat, prescribe, or dose.",
     "Built on Anu Simh’s Flourish Framework. Anu Simh, NBC-HWC · 9 Arms of Wellness, La Jolla, CA.",
   ],
   copyright: "© 2026 The Gut Clarity Lab. All rights reserved.",

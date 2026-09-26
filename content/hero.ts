@@ -1,29 +1,26 @@
-export type ChipIcon = "bars" | "coins" | "card" | "chart" | "person";
+import { site } from "@/content/site";
 
 export const hero = {
-  // U+2011 non-breaking hyphen keeps "gut-health" on one line at phone widths
-  headline: ["Run your gut‑health practice", "on one platform."],
+  headline: ["Feel better about your gut,", "one step at a time."],
   subhead: [
-    "Turn a client’s microbiome test into a 12-week, food-first programme.",
-    "Check-ins, weekly summaries, session prep and Sage — on one client profile.",
-  ],
-  inputPlaceholder: "Your work email",
-  submitLabel: "Request practitioner access",
-  chips: [
-    { icon: "person", label: "Onboard clients" },
-    { icon: "chart", label: "Read test results" },
-    { icon: "bars", label: "Track check-ins" },
-    { icon: "card", label: "Prep sessions" },
-    { icon: "coins", label: "Run group cohorts" },
-  ] satisfies { icon: ChipIcon; label: string }[],
-  // Leave empty to hide the avatar stack — add /public portraits of real practitioners later.
-  avatars: [] as string[],
+    "A science-backed, food-first 12-week programme that helps you understand your body, build better habits, and create a healthier relationship with food.",  ],
+  primary: { label: "Get Started", href: "#start" },
+  secondary: { label: "Find a Practitioner", href: site.practitioners },
   trustedLabel: "Built on Anu Simh’s Flourish Framework · 9 Arms of Wellness",
-  // Decorative blurred client-profile fragments behind the headline
+  // Tilted app fragments floating beside the headline (xl screens only)
   fragments: [
-    { label: "Terrain zone", value: "Compensated", tone: "cream" },
-    { label: "Week 5", value: "Reintroduction", tone: "mint" },
-    { label: "Check-ins", value: "12-day streak", tone: "stone" },
-    { label: "Session prep", value: "Ready", tone: "mint" },
+    { label: "Sage noticed", value: "Steadier energy", tone: "mint" },
+    { label: "Week 5", value: "Reintroduce", tone: "cream" },
+    { label: "Terrain zone", value: "Compensated", tone: "stone" },
+    { label: "Today", value: "Check-in saved", tone: "mint" },
   ] satisfies { label: string; value: string; tone: "cream" | "mint" | "stone" }[],
+  screenNote: "The client dashboard in the app. Sample data.",
+  // Square ad beside the headline (web copy of gcl-ad-loop/deliverables/gcl-ad-v2-1440.mp4)
+  video: {
+    src: "/video/gcl-ad.mp4",
+    poster: "/video/gcl-ad-poster.jpg",
+    label: "Gut Clarity Lab in 35 seconds",
+    soundOn: "Sound on",
+    soundOff: "Mute",
+  },
 };
