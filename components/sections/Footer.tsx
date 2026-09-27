@@ -6,7 +6,7 @@ import { seq } from "@/components/ui/Words";
 
 export function Footer() {
   return (
-    <footer className="border-t border-soft-mist py-section-sm md:py-section">
+    <footer className="border-t border-soft-mist pt-12 pb-6 md:pt-16">
       <Container>
         <Reveal className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
@@ -34,7 +34,7 @@ export function Footer() {
           </nav>
         </Reveal>
 
-        <div className="mt-16 space-y-4 border-t border-soft-mist pt-8 text-legal text-graphite-text">
+        <div className="mt-10 space-y-1 border-t border-soft-mist pt-4 text-caption text-graphite-text">
           {footer.legal.map((p) => (
             <p key={p}>{p}</p>
           ))}

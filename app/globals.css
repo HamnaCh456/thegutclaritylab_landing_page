@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors — DESIGN.md */
-  --color-forest-floor: #0b7443;
-  --color-deep-moss: #054f31;
-  --color-vivid-leaf: #61bc76;
-  --color-bright-sprout: #039855;
-  --color-mint-wash: #d1fadf;
-  --color-warm-putty: #715039;
-  --color-sandstone: #d1a883;
-  --color-apricot-cream: #fee9d1;
-  --color-paper-white: #ffffff;
-  --color-soft-mist: #eceff4;
-  --color-pale-stone: #f4f4f4;
-  --color-graphite-text: #5b616b;
-  --color-ink-black: #000000;
+  /* Colors — GCL brand palette (the app's tokens, nextjs-app/DESIGN.md §1.2) under the layout's role names */
+  --color-forest-floor: #2d5a44;
+  --color-deep-moss: #1a3a28;
+  --color-vivid-leaf: #8fa98c;
+  --color-bright-sprout: #2d5a44;
+  --color-mint-wash: #eaf0e6;
+  --color-warm-putty: #a06b22;
+  --color-sandstone: #d18631;
+  --color-apricot-cream: #fdf0d4;
+  --color-paper-white: #fefcf9;
+  --color-soft-mist: #e6dfcf;
+  --color-pale-stone: #fbf7f1;
+  --color-graphite-text: #4a3d36;
+  --color-ink-black: #1a1614;
 
   /* App screens — the GCL app's own tokens (nextjs-app/DESIGN.md §1.2) */
   --color-app-bg: #fbf7f1;
@@ -37,8 +37,9 @@
   --font-app-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
   --shadow-app: 0 2px 8px rgba(26, 22, 20, 0.08), 0 8px 32px rgba(26, 22, 20, 0.08);
 
-  /* Typography — Inter substitutes PP Neue Montreal */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Typography — GCL brand: Karla body, Fraunces headings */
+  --font-sans: var(--font-karla), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
 
   --text-caption: 11px;
   --text-caption--line-height: 1.4;
@@ -109,8 +110,10 @@
     background: var(--color-paper-white);
     color: var(--color-ink-black);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "tnum";
     -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
   }
   :focus-visible {
     outline: 2px solid var(--color-forest-floor);

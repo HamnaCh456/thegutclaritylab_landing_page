@@ -45,41 +45,43 @@ export function Calm() {
 
 export function AboutAnu() {
   return (
-    <section id="anu" aria-labelledby="anu-title" className="bg-pale-stone py-section md:py-section-lg">
+    <section id="anu" aria-labelledby="anu-title" className="bg-pale-stone py-section-sm md:py-section">
       <Container>
-        <Reveal variant="scale" className="mx-auto grid max-w-5xl gap-12 rounded-images bg-paper-white p-8 md:p-12 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16">
+        <Reveal variant="scale" className="mx-auto grid max-w-3xl gap-6 rounded-images bg-paper-white p-6 md:p-8 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-8">
           <div className="flex flex-col items-center text-center">
             <div className="flex items-center gap-1">
-              <Laurel grow className="sway h-32 w-auto text-vivid-leaf" />
+              <Laurel grow className="sway h-20 w-auto text-vivid-leaf" />
               <Image
                 src={anu.photo}
                 alt={anu.name}
-                width={72}
-                height={72}
-                className="stagger-item h-24 w-24 rounded-full object-cover transition-transform duration-500 hover:scale-105"
+                width={64}
+                height={64}
+                className="stagger-item h-16 w-16 rounded-full object-cover transition-transform duration-500 hover:scale-105"
                 style={seq(0, { "--base": "250ms" })}
               />
-              <Laurel grow flip className="sway h-32 w-auto text-vivid-leaf [animation-delay:-3s]" />
+              <Laurel grow flip className="sway h-20 w-auto text-vivid-leaf [animation-delay:-3s]" />
             </div>
-            <p className="mt-4 text-subheading font-semibold">{anu.name}</p>
-            <p className="mt-1 max-w-60 text-legal text-graphite-text">{anu.role}</p>
+            <a
+              href={anu.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 text-body font-semibold text-forest-floor underline decoration-vivid-leaf underline-offset-4 transition-colors hover:text-deep-moss"
+            >
+              {anu.name} ↗
+            </a>
+            <p className="mt-1 max-w-52 text-legal text-graphite-text">{anu.role}</p>
           </div>
           <div>
-            <p className="text-body font-medium text-forest-floor">{anu.eyebrow}</p>
-            <h2 id="anu-title" className="mt-3 text-heading font-medium">
+            <p className="text-legal font-medium text-forest-floor">{anu.eyebrow}</p>
+            <h2 id="anu-title" className="mt-2 text-subheading font-medium md:text-heading-sm">
               <Words text={anu.headline} />
             </h2>
-            <div className="mt-5 space-y-3 text-body text-graphite-text">
+            <div className="mt-3 space-y-2 text-legal text-graphite-text md:text-body">
               {anu.bio.map((p, i) => (
                 <p key={p} className="stagger-item" style={seq(i, { "--step": "110ms", "--base": "450ms" })}>
                   {p}
                 </p>
               ))}
-            </div>
-            <div className="stagger-item mt-8" style={seq(anu.bio.length, { "--step": "110ms", "--base": "450ms" })}>
-              <Button variant="ghost" href={anu.cta.href} external className="px-6 py-2.5">
-                {anu.cta.label} ↗
-              </Button>
             </div>
           </div>
         </Reveal>
