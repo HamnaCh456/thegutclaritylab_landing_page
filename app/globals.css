@@ -106,6 +106,11 @@
 }
 
 @layer base {
+  /* Reveals start off to the side (data-v="left|right"); clip, not hidden, so the sticky nav still sticks. */
+  html,
+  body {
+    overflow-x: clip;
+  }
   body {
     background: var(--color-paper-white);
     color: var(--color-ink-black);

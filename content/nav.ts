@@ -14,11 +14,11 @@ export const nav = {
   ] satisfies NavLink[],
   login: { label: "Log in", href: "#" },
   cta: { label: "Get Started", href: "/#start" },
-  // The tab strip above the nav. `/pricing` is practitioner pricing, so it counts as that side.
+  // The audience tabs in the nav bar. `/pricing` is practitioner pricing, so it counts as that side.
   audiences: {
     label: "Who is GCL for?",
-    client: { label: "For clients", href: "/" },
-    practitioner: { label: "For practitioners", href: "/practitioners", paths: ["/practitioners", "/pricing"] },
+    client: { label: "For clients", short: "Clients", href: "/" },
+    practitioner: { label: "For practitioners", short: "Practitioners", href: "/practitioners", paths: ["/practitioners", "/pricing"] },
   },
   practitionerLinks: [
     { label: "Client context", href: "/practitioners#context" },
