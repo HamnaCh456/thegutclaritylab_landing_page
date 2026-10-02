@@ -45,6 +45,22 @@ export function Laurel({ flip = false, grow = false, ...p }: P & { flip?: boolea
   );
 }
 
+export function Check(p: P) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p}>
+      <path d="M5 12.5l4.5 4.5L19 7.5" />
+    </svg>
+  );
+}
+
+export function Minus(p: P) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true" {...p}>
+      <path d="M7 12h10" />
+    </svg>
+  );
+}
+
 export function CheckCircle(p: P) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...p}>

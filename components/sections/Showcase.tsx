@@ -7,8 +7,8 @@ import { Words, seq } from "@/components/ui/Words";
 import { AppWindow } from "@/components/app/AppWindow";
 import { SageChatScreen } from "@/components/app/screens";
 
-// Compact list shared by both sections: icon, short title, one plain line.
-function Points({ items }: { items: Point[] }) {
+// Compact list shared by the split sections: icon, short title, one plain line.
+export function Points({ items }: { items: Point[] }) {
   return (
     <ul className="mt-6 space-y-4">
       {items.map((pt, i) => (

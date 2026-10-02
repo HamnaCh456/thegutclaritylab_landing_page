@@ -1,6 +1,9 @@
+// Eyebrow + headline differ by page; the rest is shared.
 export const anu = {
-  eyebrow: "The practitioner behind GCL",
-  headline: "Curated by a practitioner, for practitioners.",
+  copy: {
+    client: { eyebrow: "The expert behind GCL", headline: "Created by a gut-health expert, made for you." },
+    practitioner: { eyebrow: "The practitioner behind GCL", headline: "Curated by a practitioner, for practitioners." },
+  },
   photo: "/app/anu.png",
   name: "Anu Simh, NBC-HWC",
   role: "Founder, 9 Arms of Wellness · La Jolla, California",

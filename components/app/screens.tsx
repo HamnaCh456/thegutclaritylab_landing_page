@@ -6,6 +6,7 @@ import {
   education,
   journey,
   mealPhoto,
+  patterns,
   plan,
   practitioner,
   recipes,
@@ -13,16 +14,16 @@ import {
 } from "@/content/screens";
 
 // Small building blocks in the app's vocabulary (card, overline label, serif title).
-function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function Panel({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`rounded-[14px] border border-app-border bg-app-card p-3 ${className}`}>{children}</div>;
 }
-function Label({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function Label({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <p className={`text-[10px] uppercase tracking-[1.4px] text-app-ink3 ${className}`}>{children}</p>;
 }
-function Title({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function Title({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <p className={`font-app-serif text-[20px] leading-tight text-app-ink ${className}`}>{children}</p>;
 }
-function Chip({ children, on = false }: { children: ReactNode; on?: boolean }) {
+export function Chip({ children, on = false }: { children: ReactNode; on?: boolean }) {
   const t = on ? "border-app-green-l bg-app-green-l text-app-green-d" : "border-app-border bg-app-card text-app-ink2";
   return <span className={`inline-flex rounded-full border px-2.5 py-1 text-[11px] font-medium ${t}`}>{children}</span>;
 }
@@ -333,6 +334,58 @@ export function EducationScreen() {
         </div>
         <p className="truncate text-[11px] text-app-ink3">{e.next}</p>
       </div>
+    </div>
+  );
+}
+
+export function PatternsScreen() {
+  const p = patterns;
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between gap-3">
+        <Title>{p.title}</Title>
+        <Chip>{p.range}</Chip>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Panel>
+          <Label>{p.suitsLabel}</Label>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {p.suits.map((f) => (
+              <Chip key={f} on>
+                {f}
+              </Chip>
+            ))}
+          </div>
+        </Panel>
+        <Panel>
+          <Label>{p.easyLabel}</Label>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {p.easy.map((f) => (
+              <span key={f} className="inline-flex rounded-full border border-app-amber-l bg-app-amber-l px-2.5 py-1 text-[11px] font-medium text-app-amber-d">
+                {f}
+              </span>
+            ))}
+          </div>
+        </Panel>
+      </div>
+      <p className="rounded-[10px] bg-app-green-l px-3 py-2 text-[12px] leading-snug text-app-green-d">{p.insight}</p>
+      <Panel className="p-0">
+        <Label className="px-3 pt-3">{p.logsLabel}</Label>
+        <ul className="mt-1">
+          {p.logs.map((l, i) => (
+            <li
+              key={l.day}
+              style={{ "--i": i, "--step": "140ms", "--base": "500ms" } as CSSProperties}
+              className="stagger-item flex items-center gap-3 border-t border-app-border2 px-3 py-2 first:border-t-0"
+            >
+              <span className={`h-2 w-2 shrink-0 rounded-full ${l.feel === "good" ? "bg-app-green" : "bg-app-amber"}`} />
+              <span className="w-12 shrink-0 text-[11px] font-bold">{l.day}</span>
+              <span className="min-w-0 flex-1 truncate text-[11px] text-app-ink2">{l.meals}</span>
+              <span className="hidden shrink-0 text-[11px] text-app-ink3 sm:inline">{l.tag}</span>
+            </li>
+          ))}
+        </ul>
+      </Panel>
     </div>
   );
 }

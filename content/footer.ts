@@ -12,6 +12,7 @@ export const footer = {
         { label: "The 12-week journey", href: "/#journey" },
         { label: "Sage", href: "/#sage" },
         { label: "Features", href: "/features" },
+        { label: "Pricing", href: "/pricing" },
       ],
     },
     {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { anu } from "@/content/anu";
 import { calm, finalCta } from "@/content/cta";
-import { nav } from "@/content/nav";
+import { nav, type Audience } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
@@ -43,7 +43,8 @@ export function Calm() {
   );
 }
 
-export function AboutAnu() {
+export function AboutAnu({ audience = "client" }: { audience?: Audience }) {
+  const copy = anu.copy[audience];
   return (
     <section id="anu" aria-labelledby="anu-title" className="bg-pale-stone py-section-sm md:py-section">
       <Container>
@@ -72,9 +73,9 @@ export function AboutAnu() {
             <p className="mt-1 max-w-52 text-legal text-graphite-text">{anu.role}</p>
           </div>
           <div>
-            <p className="text-legal font-medium text-forest-floor">{anu.eyebrow}</p>
+            <p className="text-legal font-medium text-forest-floor">{copy.eyebrow}</p>
             <h2 id="anu-title" className="mt-2 text-subheading font-medium md:text-heading-sm">
-              <Words text={anu.headline} />
+              <Words text={copy.headline} />
             </h2>
             <div className="mt-3 space-y-2 text-legal text-graphite-text md:text-body">
               {anu.bio.map((p, i) => (
@@ -90,7 +91,9 @@ export function AboutAnu() {
   );
 }
 
-export function FinalCta() {
+type CtaCopy = { headline: string; body: string; primary: { label: string; href: string }; secondary: { label: string; href: string } };
+
+export function FinalCta({ copy = finalCta }: { copy?: CtaCopy }) {
   return (
     <section
       id="start"
@@ -105,17 +108,17 @@ export function FinalCta() {
         <Reveal>
           <Image src={nav.logo} alt="" width={72} height={72} className="mx-auto h-18 w-18 mix-blend-multiply motion-safe:animate-float" />
           <h2 id="start-title" className="mx-auto mt-6 max-w-2xl text-heading font-medium md:text-heading-lg">
-            <Words text={finalCta.headline} />
+            <Words text={copy.headline} />
           </h2>
           <p className="stagger-item mx-auto mt-4 max-w-xl text-subheading text-graphite-text" style={seq(0, { "--base": "400ms" })}>
-            {finalCta.body}
+            {copy.body}
           </p>
           <div className="stagger-item mt-10 flex flex-wrap justify-center gap-3" style={seq(1, { "--base": "400ms" })}>
-          <Button href={finalCta.primary.href} className="px-6 py-2.5">
-            {finalCta.primary.label}
+          <Button href={copy.primary.href} className="px-6 py-2.5">
+            {copy.primary.label}
           </Button>
-          <Button variant="ghost" href={finalCta.secondary.href} className="px-6 py-2.5">
-            {finalCta.secondary.label}
+          <Button variant="ghost" href={copy.secondary.href} className="px-6 py-2.5">
+            {copy.secondary.label}
           </Button>
           </div>
         </Reveal>

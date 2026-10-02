@@ -5,7 +5,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 
 // GCL brand faces: Fraunces for headings, Karla for everything else.
-const fraunces = Fraunces({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-fraunces", display: "swap" });
+const fraunces = Fraunces({ subsets: ["latin"], weight: ["500", "600"], style: ["normal", "italic"], variable: "--font-fraunces", display: "swap" });
 const karla = Karla({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-karla", display: "swap" });
 
 export const metadata: Metadata = {

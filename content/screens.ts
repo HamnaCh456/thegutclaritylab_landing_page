@@ -107,6 +107,23 @@ export const education = {
   next: "Up next · The Microbiome Story",
 };
 
+export const patterns = {
+  title: "My Patterns",
+  range: "Last 14 days",
+  suitsLabel: "Suits you",
+  suits: ["Oats", "Cooked greens", "Chickpeas", "Ginger"],
+  easyLabel: "Go easy on",
+  easy: ["Dairy", "Late dinners", "Raw onion"],
+  insight: "Sage noticed: bloating was lower on 6 of 7 days you finished dinner before 8pm.",
+  logsLabel: "Past check-ins",
+  logs: [
+    { day: "Mon 14", feel: "good", meals: "Smoothie · Chickpea bowl · Soup", tag: "More energy" },
+    { day: "Sun 13", feel: "okay", meals: "Porridge · Wrap · Pasta", tag: "Bloating" },
+    { day: "Sat 12", feel: "good", meals: "Eggs · Salad · Stir-fry", tag: "Good sleep" },
+    { day: "Fri 11", feel: "good", meals: "Smoothie · Lentil soup · Fish", tag: "Calm digestion" },
+  ] as { day: string; feel: "good" | "okay"; meals: string; tag: string }[],
+};
+
 export const sageChat = {
   title: "Work with Sage",
   avatar: "/app/sage.svg",
