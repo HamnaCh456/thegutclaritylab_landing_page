@@ -109,7 +109,7 @@ export const pricing = {
         rows: [
           { label: "Branded recipes", values: [false, true, true] },
           { label: "Branded client experience", values: [false, false, true] },
-          { label: "Print recipes and PDFs with your logo", values: [false, false, true] },
+          { label: "Print recipes and create PDFs with your own logo", values: [false, false, true] },
           { label: "SMS text messaging", values: [false, false, true] },
         ],
       },

@@ -8,10 +8,16 @@ import { SmoothScroll } from "@/components/ui/SmoothScroll";
 const fraunces = Fraunces({ subsets: ["latin"], weight: ["500", "600"], style: ["normal", "italic"], variable: "--font-fraunces", display: "swap" });
 const karla = Karla({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-karla", display: "swap" });
 
+const title = "Gut Clarity Lab — for gut-health practitioners";
+const description =
+  "Gut Clarity Lab brings client goals, daily logs, check-ins and microbiome test reports into one place, with Sage to help organize information and prepare for sessions.";
+
 export const metadata: Metadata = {
-  title: "Gut Clarity Lab — for gut-health practitioners",
-  description:
-    "Gut Clarity Lab brings client goals, daily logs, check-ins and microbiome test reports into one place, with Sage to help organize information and prepare for sessions.",
+  title,
+  description,
+  // Shared-link previews (no image yet: there is no fixed production domain for an absolute URL).
+  openGraph: { title, description, siteName: "Gut Clarity Lab", type: "website" },
+  twitter: { card: "summary", title, description },
   icons: { icon: "/app/gcl-logo.jpeg" },
 };
 

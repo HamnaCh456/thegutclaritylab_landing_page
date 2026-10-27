@@ -89,7 +89,7 @@ export const reports = {
     {
       n: "1",
       title: "Sage fills in the markers",
-      body: "Every value is pulled from the PDF into Terrain Building for you. No retyping, no missed rows.",
+      body: "Every value is pulled from the PDF into Terrain Building, with its page, for you to check. No retyping.",
     },
     {
       n: "2",
@@ -134,7 +134,6 @@ export const sessions = {
 };
 
 export const toolkit = {
-  headline: "Everything else your practice needs.",
   items: [
     {
       title: "Past logs & check-ins",
@@ -148,8 +147,8 @@ export const toolkit = {
     },
   ],
   zoom: {
-    title: "1:1 Zoom sessions",
-    body: "Book and join one-to-one sessions from the client’s record, with your session prep one click away.",
+    title: "Zoom sessions",
+    body: "Schedule one-to-one or group sessions from your calendar. With Zoom connected, each one gets its own meeting link.",
     // Photo: Vitaly Gariev on Unsplash (unsplash.com/photos/nSj0hdQUrW0), Unsplash License.
     image: { src: "/app/practitioner/zoom-session.jpg", w: 1200, h: 675, alt: "A practitioner waving hello to a client on a video call" },
     live: "1:1 session · Live",
@@ -168,8 +167,8 @@ export const clientExperience = {
 // Every claim here is from the published Privacy Policy (site.privacy, last updated 3 October 2026).
 export const privacy = {
   eyebrow: "Privacy and data handling",
-  headline: "Your clients’ information stays private.",
-  lead: "GCL is a closed, invitation-only platform for wellness coaching. Here is how client information is handled.",
+  headline: "How your clients’ information is handled.",
+  lead: "GCL is a closed, invitation-only platform for wellness coaching. Outside your practice, client information goes only to the service providers that run GCL, each named in the policy.",
   points: [
     {
       title: "Scoped to you",
@@ -185,7 +184,7 @@ export const privacy = {
     },
     {
       title: "Not used to train AI",
-      body: "Sage conversations don’t train the AI models, and Sage only sees the client you have selected.",
+      body: "Sage runs on OpenAI, or Anthropic if you connect your own key. Conversations don’t train their models, and Sage only sees the client you have selected.",
     },
     {
       title: "Coaching, not medical care",

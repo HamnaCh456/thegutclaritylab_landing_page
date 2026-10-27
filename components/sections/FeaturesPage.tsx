@@ -62,7 +62,7 @@ function FeatureRow({ f, i }: { f: Feature; i: number }) {
   const flip = i % 2 === 1;
   return (
     <section id={f.id} aria-labelledby={`${f.id}-title`} className="scroll-mt-20 py-section-sm md:py-section">
-      <Container className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <Container className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
         <Reveal variant={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
           <p className="text-heading-sm font-semibold text-vivid-leaf">{String(i + 1).padStart(2, "0")}</p>
           <h2 id={`${f.id}-title`} className="mt-2 text-heading-sm font-medium md:text-heading">

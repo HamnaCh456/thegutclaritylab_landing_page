@@ -379,6 +379,7 @@ export function SessionsSection() {
             </SessionCard>
           </Reveal>
         </div>
+        <ToolkitCards />
       </Container>
     </section>
   );
@@ -394,61 +395,55 @@ function SessionCard({ title, body, tone, children }: { title: string; body: str
   );
 }
 
-export function ToolkitSection() {
+// Zoom, past logs and recipes: the rest of the between-sessions kit, under the two session cards.
+function ToolkitCards() {
   const t = toolkit;
   const z = t.zoom;
   return (
-    <section aria-labelledby="toolkit-title" className="pb-section-sm md:pb-section">
-      <Container>
-        <Reveal>
-          <h2 id="toolkit-title" className="mx-auto max-w-2xl text-center text-heading-sm font-medium md:text-heading">
-            <Words text={t.headline} />
-          </h2>
+    <>
+      <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* The live session photo, one card among equals. */}
+        <Reveal variant="scale" className="flex">
+          <div className="card-lift group flex w-full flex-col rounded-images bg-apricot-cream p-5">
+            <div className="relative aspect-[2/1] overflow-hidden rounded-cards">
+              <Image
+                src={z.image.src}
+                alt={z.image.alt}
+                fill
+                sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
+                className="object-cover object-[30%_50%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              />
+              <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-pills bg-paper-white/90 px-3 py-1 text-caption font-semibold text-ink-black backdrop-blur">
+                <span aria-hidden="true" className="relative flex h-2 w-2">
+                  <span className="ripple absolute inset-0 rounded-full bg-sandstone" />
+                  <span className="relative h-2 w-2 rounded-full bg-sandstone" />
+                </span>
+                {z.live}
+              </span>
+              <span className="absolute bottom-3 right-3 rounded-buttons bg-forest-floor px-3 py-1.5 text-legal font-semibold text-paper-white shadow-md">
+                {z.join}
+              </span>
+            </div>
+            <h3 className="mt-5 text-subheading font-semibold">{z.title}</h3>
+            <p className="mt-2 text-legal text-graphite-text md:text-body">{z.body}</p>
+          </div>
         </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {/* The live session photo, one card among equals. */}
-          <Reveal variant="scale" className="flex">
-            <div className="card-lift group flex w-full flex-col rounded-images bg-apricot-cream p-5">
-              <div className="relative aspect-[2/1] overflow-hidden rounded-cards">
-                <Image
-                  src={z.image.src}
-                  alt={z.image.alt}
-                  fill
-                  sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
-                  className="object-cover object-[30%_50%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                />
-                <span className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-pills bg-paper-white/90 px-3 py-1 text-caption font-semibold text-ink-black backdrop-blur">
-                  <span aria-hidden="true" className="relative flex h-2 w-2">
-                    <span className="ripple absolute inset-0 rounded-full bg-sandstone" />
-                    <span className="relative h-2 w-2 rounded-full bg-sandstone" />
-                  </span>
-                  {z.live}
-                </span>
-                <span className="absolute bottom-3 right-3 rounded-buttons bg-forest-floor px-3 py-1.5 text-legal font-semibold text-paper-white shadow-md">
-                  {z.join}
-                </span>
-              </div>
-              <h3 className="mt-5 text-subheading font-semibold">{z.title}</h3>
-              <p className="mt-2 text-legal text-graphite-text md:text-body">{z.body}</p>
+        {t.items.map((f, i) => (
+          <Reveal key={f.title} delay={(i + 1) * 110} variant="scale" className="flex">
+            <div className="card-lift group w-full rounded-images bg-pale-stone p-5">
+              <ShotFrame
+                shot={f.image}
+                sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
+                className="transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              />
+              <h3 className="mt-5 text-subheading font-semibold">{f.title}</h3>
+              <p className="mt-2 text-legal text-graphite-text md:text-body">{f.body}</p>
             </div>
           </Reveal>
-          {t.items.map((f, i) => (
-            <Reveal key={f.title} delay={(i + 1) * 110} variant="scale" className="flex">
-              <div className="card-lift group w-full rounded-images bg-pale-stone p-5">
-                <ShotFrame
-                  shot={f.image}
-                  sizes="(min-width: 1024px) 370px, (min-width: 768px) 50vw, 100vw"
-                  className="transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                />
-                <h3 className="mt-5 text-subheading font-semibold">{f.title}</h3>
-                <p className="mt-2 text-legal text-graphite-text md:text-body">{f.body}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mt-6 text-center text-caption text-graphite-text">{t.note}</p>
-      </Container>
-    </section>
+        ))}
+      </div>
+      <p className="mt-6 text-center text-caption text-graphite-text">{t.note}</p>
+    </>
   );
 }
 

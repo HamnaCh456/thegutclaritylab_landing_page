@@ -56,7 +56,7 @@ export function Features() {
           <Bracket className="mx-auto mt-8 hidden h-24 w-full max-w-3xl text-vivid-leaf md:block" />
         </Reveal>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
           {features.items.map((f, i) => {
             const Screen = screens[f.screen];
             return (

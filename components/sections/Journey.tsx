@@ -17,7 +17,7 @@ export function Journey() {
           </p>
         </Reveal>
 
-        <ol className="mt-14 grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="mt-14 grid gap-12 sm:grid-cols-2 xl:grid-cols-4 xl:gap-6">
           {journey.stages.map((s, i) => (
             <li key={s.title}>
               <Reveal delay={i * 140} className="group flex flex-col items-center">
