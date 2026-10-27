@@ -9,9 +9,9 @@ const fraunces = Fraunces({ subsets: ["latin"], weight: ["500", "600"], style: [
 const karla = Karla({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-karla", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Gut Clarity Lab — Feel better about your gut, one step at a time",
+  title: "Gut Clarity Lab — for gut-health practitioners",
   description:
-    "A science-backed, food-first 12-week programme that helps you understand your body, build better habits and create a healthier relationship with food. Guided by your practitioner and Sage.",
+    "Gut Clarity Lab brings client goals, daily logs, check-ins and microbiome test reports into one place, with Sage to help organize information and prepare for sessions.",
   icons: { icon: "/app/gcl-logo.jpeg" },
 };
 

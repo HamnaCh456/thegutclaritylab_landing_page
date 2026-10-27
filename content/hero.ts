@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 export const hero = {
   headline: ["Feel better about your gut,", "one step at a time."],
   subhead: [
-    "A science-backed, food-first 12-week programme that helps you understand your body, build better habits, and create a healthier relationship with food.",  ],
+    "A science-backed, food-first 12-week program that helps you understand your body, build better habits, and create a healthier relationship with food.",  ],
   primary: { label: "Get Started", href: "#start" },
   secondary: { label: "Find a Practitioner", href: site.practitioners },
   trustedLabel: "Built on Anu Simh’s Flourish Framework · 9 Arms of Wellness",

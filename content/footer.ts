@@ -4,14 +4,15 @@ import { site } from "@/content/site";
 export const footer = {
   brand: "Gut Clarity Lab",
   logo: "/app/gcl-logo.jpeg",
-  tagline: "Science-backed. Food-first. Guided by Sage.",
+  tagline: "Built for gut-health practitioners. Science-backed and food-first.",
   columns: [
     {
-      heading: "Programme",
+      heading: "Product",
       links: [
-        { label: "The 12-week journey", href: "/#journey" },
+        { label: "How it works", href: "/#context" },
         { label: "Sage", href: "/#sage" },
-        { label: "Features", href: "/features" },
+        { label: "Test reports", href: "/#reports" },
+        { label: "Client experience", href: "/#client-experience" },
         { label: "Pricing", href: "/pricing" },
       ],
     },
@@ -19,7 +20,7 @@ export const footer = {
       heading: "Company",
       links: [
         { label: "About", href: "/#anu" },
-        { label: "Find a Practitioner", href: site.practitioners },
+        { label: "Book a walkthrough", href: site.walkthrough },
         { label: "Contact", href: site.contact },
         { label: "Help Desk", href: site.support },
       ],
@@ -27,7 +28,8 @@ export const footer = {
     {
       heading: "Legal",
       links: [
-        { label: "Privacy", href: site.privacy },
+        { label: "Privacy and data", href: "/#privacy" },
+        { label: "Privacy Policy", href: site.privacy },
         { label: "Terms", href: site.terms },
       ],
     },

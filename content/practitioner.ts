@@ -3,14 +3,15 @@ import type { Point } from "@/content/sage";
 
 // Copy for /practitioners. Benefits are stated plainly; no invented statistics.
 export const practitionerHero = {
-  eyebrow: "AI-powered practice for gut health practitioners",
-  headline: ["Know every client"],
-  accent: "before the session starts.",
+  eyebrow: "For gut-health practitioners",
+  headline: ["Spend less time piecing together client data."],
+  accent: "More time coaching.",
   subhead:
-    "GCL gathers each client’s vision, quizzes, daily logs and gut test reports. Sage turns them into session prep, weekly summaries and guides, so your time goes to coaching.",
-  primary: { label: "See pricing", href: "/pricing" },
-  secondary: { label: "Book a walkthrough", href: `${site.contact}?subject=${encodeURIComponent("GCL practitioner walkthrough")}` },
-  proof: ["Built on Anu Simh’s Flourish Framework", "Sage prepares, you decide", "Zoom sessions built in"],
+    "Gut Clarity Lab brings client goals, daily logs, check-ins, and microbiome test reports into one place. With Sage to help organize information and prepare for sessions, you can spend more time focused on the person in front of you.",
+  // The walkthrough leads until pricing and the purchase journey are confirmed.
+  primary: { label: "Book a walkthrough", href: site.walkthrough },
+  secondary: { label: "See pricing", href: "/pricing" },
+  proof: ["Built on Anu Simh’s Flourish Framework", "Sage supports your judgement—you remain in control", "Zoom sessions built in"],
   // Small app fragments floating over the corners of the ad.
   badges: [
     { label: "Session prep", value: "Ready for Maya · 2pm" },
@@ -157,18 +158,46 @@ export const toolkit = {
   note: "Screens from the GCL app with a test client.",
 };
 
-export const why = {
-  headline: "Why practitioners choose GCL.",
-  reasons: [
-    { title: "Less admin, more coaching", body: "Summaries, prep and report reading are done for you, so your time goes to your clients." },
-    { title: "AI that prepares, you decide", body: "Sage and the guides do the groundwork. Every call about your client stays yours." },
-    { title: "A proven programme to run", body: "A structured 12-week, food-first journey your clients follow between sessions." },
+// Between sessions: what the client sees in the app, built from the (hidden) client page's sections.
+export const clientExperience = {
+  eyebrow: "Between sessions",
+  headline: "What your clients will experience.",
+  lead: "Between sessions, your clients follow the program in the GCL app: daily check-ins, meals, recipes, lessons and Sage. This is what they see.",
+};
+
+// Every claim here is from the published Privacy Policy (site.privacy, last updated 3 October 2026).
+export const privacy = {
+  eyebrow: "Privacy and data handling",
+  headline: "Your clients’ information stays private.",
+  lead: "GCL is a closed, invitation-only platform for wellness coaching. Here is how client information is handled.",
+  points: [
+    {
+      title: "Scoped to you",
+      body: "Each client record belongs to the practitioner who onboarded them. A client only ever sees their own data.",
+    },
+    {
+      title: "Encrypted",
+      body: "Data is encrypted in transit over HTTPS and encrypted at rest in the database.",
+    },
+    {
+      title: "Never sold, never for ads",
+      body: "We don’t sell or rent client data, and we don’t use it for advertising.",
+    },
+    {
+      title: "Not used to train AI",
+      body: "Sage conversations don’t train the AI models, and Sage only sees the client you have selected.",
+    },
+    {
+      title: "Coaching, not medical care",
+      body: "GCL is built for private-pay wellness coaching. It does not diagnose or treat, and Sage supports your judgement rather than replacing it.",
+    },
   ] satisfies Point[],
+  link: { label: "Read the full Privacy Policy", href: site.privacy },
 };
 
 export const practitionerCta = {
-  headline: "Ready to bring GCL to your practice?",
-  body: "Pick the tier that fits your client load. Every tier includes Sage, the full Practitioner Corner and test interpretation.",
-  primary: { label: "See pricing", href: "/pricing" },
-  secondary: practitionerHero.secondary,
+  headline: "Bring more clarity to your gut-health practice.",
+  body: "Explore how Gut Clarity Lab can help you organize client information, prepare for sessions, and support a more structured coaching experience.",
+  primary: practitionerHero.primary,
+  secondary: { label: "Explore pricing", href: "/pricing" },
 };

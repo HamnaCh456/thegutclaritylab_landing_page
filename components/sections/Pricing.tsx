@@ -131,6 +131,13 @@ export function PricingSection() {
           ))}
         </div>
 
+        <Reveal className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4">
+          <p className="text-body text-graphite-text">{pricing.access.body}</p>
+          <Button variant="ghost" href={pricing.access.walkthrough.href} className="px-6 py-2.5">
+            {pricing.access.walkthrough.label}
+          </Button>
+        </Reveal>
+
         <CompareTable />
       </Container>
     </section>

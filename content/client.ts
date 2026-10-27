@@ -13,13 +13,13 @@ export type Path = {
 export const pathChoice = {
   eyebrow: "Your way",
   headline: "Two ways to start. Both are yours to choose.",
-  lead: "Work through the programme on your own with Sage, or bring in a practitioner who fits you.",
+  lead: "Work through the program on your own with Sage, or bring in a practitioner who fits you.",
   paths: [
     {
       id: "own",
       label: "On your own",
       title: "Go at your own pace with Sage",
-      body: "The full 12-week programme, with Sage guiding you day to day. No practitioner needed.",
+      body: "The full 12-week program, with Sage guiding you day to day. No practitioner needed.",
       points: [
         "Every stage, lesson and recipe included.",
         "Sage answers your questions any time.",

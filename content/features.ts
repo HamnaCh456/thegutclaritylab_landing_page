@@ -70,7 +70,7 @@ export const features = {
       id: "journey",
       short: "Gut journey",
       title: "Your Gut Journey",
-      body: "Track your starting point and see how things change throughout the programme.",
+      body: "Track your starting point and see how things change throughout the program.",
       points: [
         "A clear record of where you started.",
         "Follow the four stages: Stabilize, Reintroduce, Build, Sustain.",
@@ -96,7 +96,7 @@ export const features = {
       id: "education",
       short: "Education",
       title: "Education",
-      body: "Learn through short videos and simple lessons designed around each stage of the programme.",
+      body: "Learn through short videos and simple lessons designed around each stage of the program.",
       points: [
         "Short videos you can watch any time.",
         "Lessons matched to each stage.",
@@ -116,5 +116,5 @@ export const featuresPage = {
   jumpLabel: "Jump to",
   sage: { id: "sage", short: "Sage" },
   moreLabel: "Explore the 12-week journey",
-  moreHref: "/#journey",
+  moreHref: "/clients#journey",
 };

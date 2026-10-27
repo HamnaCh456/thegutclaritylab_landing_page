@@ -27,7 +27,7 @@ export const journey = {
       n: "4",
       title: "Sustain",
       weeks: "Weeks 10–12",
-      body: "Take what you’ve learned into everyday life, including busy weeks, restaurants, travel, and beyond the programme.",
+      body: "Take what you’ve learned into everyday life, including busy weeks, restaurants, travel, and beyond the program.",
     },
   ] satisfies Stage[],
 };

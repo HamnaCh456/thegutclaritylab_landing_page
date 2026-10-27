@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, type Audience } from "@/content/nav";
+import { clientsLive, nav, type Audience } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
 // Segmented tab in the nav bar that switches the whole site between the client and practitioner pages.
+// Hidden while the client offering is not live (see `clientsLive`).
 // Phones get the short labels so the pair always fits beside the logo.
 function AudienceTabs({ active }: { active: Audience }) {
   const a = nav.audiences;
@@ -36,10 +37,8 @@ function AudienceTabs({ active }: { active: Audience }) {
 
 export function Nav() {
   const pathname = usePathname();
-  const audience: Audience = nav.audiences.practitioner.paths.some((p) => pathname.startsWith(p)) ? "practitioner" : "client";
-  const links = audience === "practitioner" ? nav.practitionerLinks : nav.links;
-  const cta = audience === "practitioner" ? nav.practitionerCta : nav.cta;
-  const home = audience === "practitioner" ? nav.audiences.practitioner.href : nav.home;
+  const audience: Audience = nav.audiences.client.paths.some((p) => pathname.startsWith(p)) ? "client" : "practitioner";
+  const { links, cta, home } = nav[audience];
 
   // Hairline appears once the page has scrolled, so the bar reads as a bar, not a strip of hero.
   const [scrolled, setScrolled] = useState(false);
@@ -69,7 +68,7 @@ export function Nav() {
             />
             <span className="hidden whitespace-nowrap text-subheading font-semibold tracking-tight sm:inline">{nav.brand}</span>
           </Link>
-          <AudienceTabs active={audience} />
+          {clientsLive && <AudienceTabs active={audience} />}
         </div>
 
         <nav aria-label="Primary" className="hidden items-center gap-0.5 rounded-nav bg-soft-mist p-1 xl:flex">
@@ -85,14 +84,13 @@ export function Nav() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 lg:gap-3">
-          <div className="hidden md:block">
+          <div className="hidden sm:block">
             <Button variant="ghost" href={nav.login.href}>
               {nav.login.label}
             </Button>
           </div>
-          <div className="hidden sm:block">
-            <Button href={cta.href}>{cta.label}</Button>
-          </div>
+          {/* Always shown: with the audience tabs hidden, it is the one action a phone visitor has. */}
+          <Button href={cta.href}>{cta.label}</Button>
         </div>
       </Container>
     </header>

@@ -5,9 +5,9 @@ export const sage = {
   headline: "Meet Sage, your guide along the way.",
   lead: "Your AI coach inside GCL, there 24/7 from your first check-in to Week 12.",
   points: [
-    { title: "There 24/7", body: "Ask about meals, sleep, stress, digestion or your programme, day or night." },
+    { title: "There 24/7", body: "Ask about meals, sleep, stress, digestion or your program, day or night." },
     { title: "Knows your whole picture", body: "Your wellness vision, terrain quiz, daily logs and gut reports, so every answer is about you." },
-    { title: "Coaches you through every week", body: "Knows where you are in the programme and helps you decide what to focus on next." },
+    { title: "Coaches you through every week", body: "Knows where you are in the program and helps you decide what to focus on next." },
   ] satisfies Point[],
   callout: "Sage works alongside your practitioner. It never replaces them.",
 };

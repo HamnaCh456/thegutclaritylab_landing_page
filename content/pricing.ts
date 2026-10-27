@@ -16,8 +16,9 @@ export type Tier = {
 export type CompareRow = { label: string; values: [boolean | string, boolean | string, boolean | string] };
 export type CompareGroup = { group: string; rows: CompareRow[] };
 
-// No checkout yet: each "Get started" opens an email naming the tier.
-const start = (tier: string) => `${site.contact}?subject=${encodeURIComponent(`GCL ${tier} tier`)}`;
+// No checkout yet, and the app is invitation-only (access codes are issued by GCL), so each tier's
+// button is an access request by email that names the tier.
+const start = (tier: string) => site.mail(`GCL ${tier} tier: access request`);
 
 const all = [true, true, true] as [boolean, boolean, boolean];
 
@@ -26,13 +27,18 @@ export const pricing = {
   headline: "Choose the tier that fits your practice",
   lead: "Every tier includes the complete GCL experience: 12-week journey, recipes, full Practitioner Corner, Sage, and test interpretation tools.",
   priceNote: "per month, billed in USD",
+  // How signing up actually works today, said once under the tiers.
+  access: {
+    body: "GCL is in beta and access is by invitation. Request access on any tier and we will set you up, or book a walkthrough first.",
+    walkthrough: { label: "Book a walkthrough", href: site.walkthrough },
+  },
   tiers: [
     {
       id: "practitioner",
       name: "Practitioner",
       price: "$69",
       blurb: "For practitioners supporting up to 10 active clients.",
-      cta: { label: "Get started", href: start("Practitioner") },
+      cta: { label: "Request access", href: start("Practitioner") },
       featuresLabel: "Includes:",
       features: [
         "Up to 10 active clients",
@@ -50,7 +56,7 @@ export const pricing = {
       name: "Practice",
       price: "$89",
       blurb: "For practitioners supporting more than 10 active clients.",
-      cta: { label: "Get started", href: start("Practice") },
+      cta: { label: "Request access", href: start("Practice") },
       featuresLabel: "Everything in Practitioner, plus:",
       features: ["More than 10 active clients", "Monthly GCL practitioner calls", "Branded recipes"],
     },
@@ -59,7 +65,7 @@ export const pricing = {
       name: "Partner",
       price: "$119",
       blurb: "For practitioners who want a branded, higher-touch partner experience.",
-      cta: { label: "Get started", href: start("Partner") },
+      cta: { label: "Request access", href: start("Partner") },
       featuresLabel: "Everything in Practice, plus:",
       features: [
         "SMS text messaging",

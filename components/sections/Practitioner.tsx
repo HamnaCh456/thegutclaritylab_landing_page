@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
-import { consultSage, context, practitionerHero, reports, sessions, toolkit, why } from "@/content/practitioner";
+import { clientExperience, consultSage, context, practitionerHero, privacy, reports, sessions, toolkit } from "@/content/practitioner";
 import { nav } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
 import { HeroVideo } from "@/components/ui/HeroVideo";
@@ -452,24 +452,58 @@ export function ToolkitSection() {
   );
 }
 
-export function WhySection() {
-  const w = why;
+// Intro band for the client view, which follows it on the page (Journey, Sage, Features).
+export function ClientExperienceIntro() {
+  const c = clientExperience;
   return (
-    <section aria-labelledby="why-title" className="bg-mint-wash/50 py-section-sm md:py-section">
+    <section id="client-experience" aria-labelledby="client-experience-title" className="pt-section-sm md:pt-section">
       <Container>
-        <Reveal>
-          <h2 id="why-title" className="text-center text-heading font-medium md:text-heading-lg">
-            <Words text={w.headline} />
+        <Reveal className="text-center">
+          <p className="text-legal font-semibold uppercase tracking-[0.14em] text-forest-floor">{c.eyebrow}</p>
+          <h2 id="client-experience-title" className="mx-auto mt-3 max-w-2xl text-heading font-medium md:text-heading-lg">
+            <Words text={c.headline} />
           </h2>
-          <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-            {w.reasons.map((r, i) => (
-              <li key={r.title} className="stagger-item border-t border-forest-floor/30 pt-5" style={seq(i, { "--step": "140ms", "--base": "350ms" })}>
-                <p className="font-display text-heading font-medium text-forest-floor">{String(i + 1).padStart(2, "0")}</p>
-                <p className="mt-3 text-subheading font-semibold">{r.title}</p>
-                <p className="mt-2 text-body text-graphite-text">{r.body}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-subheading text-graphite-text">{c.lead}</p>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+export function PrivacySection() {
+  const p = privacy;
+  return (
+    <section id="privacy" aria-labelledby="privacy-title" className="bg-pale-stone/60 py-section-sm md:py-section">
+      <Container className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:gap-14">
+        <Reveal variant="left">
+          <p className="text-legal font-medium text-forest-floor">{p.eyebrow}</p>
+          <h2 id="privacy-title" className="mt-3 text-heading-sm font-medium md:text-heading">
+            <Words text={p.headline} />
+          </h2>
+          <p className="mt-3 text-body text-graphite-text">{p.lead}</p>
+          <a
+            href={p.link.href}
+            className="mt-6 inline-block text-body font-semibold text-forest-floor underline decoration-vivid-leaf underline-offset-4 transition-colors hover:text-deep-moss"
+          >
+            {p.link.label} ↗
+          </a>
+        </Reveal>
+        <Reveal delay={120}>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {p.points.map((pt, i) => (
+              <li
+                key={pt.title}
+                className={`stagger-item flex gap-3 rounded-images bg-paper-white p-5 ${i === p.points.length - 1 ? "sm:col-span-2" : ""}`}
+                style={seq(i, { "--step": "110ms", "--base": "250ms" })}
+              >
+                <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-bright-sprout" />
+                <div>
+                  <p className="text-body font-semibold">{pt.title}</p>
+                  <p className="mt-1 text-legal text-graphite-text">{pt.body}</p>
+                </div>
               </li>
             ))}
-          </ol>
+          </ul>
         </Reveal>
       </Container>
     </section>

@@ -24,16 +24,17 @@ export function Points({ items }: { items: Point[] }) {
   );
 }
 
-export function SageSection() {
+// `id` moves off "sage" when the practitioner page shows this beside its own Sage section.
+export function SageSection({ id = "sage" }: { id?: string }) {
   return (
-    <section id="sage" aria-labelledby="sage-title" className="py-section-sm md:py-section">
+    <section id={id} aria-labelledby={`${id}-title`} className="py-section-sm md:py-section">
       <Container className="grid gap-10 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-14">
         <Reveal variant="left">
           <p className="inline-flex items-center gap-2 text-legal font-medium text-forest-floor">
             <Image src="/app/sage.svg" alt="" width={24} height={24} className="h-6 w-6 motion-safe:animate-float" />
             {sage.eyebrow}
           </p>
-          <h2 id="sage-title" className="mt-3 text-heading-sm font-medium md:text-heading">
+          <h2 id={`${id}-title`} className="mt-3 text-heading-sm font-medium md:text-heading">
             <Words text={sage.headline} />
           </h2>
           <p className="mt-3 text-body text-graphite-text">{sage.lead}</p>
