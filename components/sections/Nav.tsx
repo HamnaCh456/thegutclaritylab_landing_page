@@ -64,7 +64,7 @@ export function Nav() {
               width={36}
               height={36}
               priority
-              className="h-8 w-8 mix-blend-multiply transition-transform duration-500 ease-out group-hover:-rotate-12 group-hover:scale-110"
+              className="h-8 w-8 rounded-full mix-blend-multiply transition-transform duration-500 ease-out group-hover:-rotate-12 group-hover:scale-110"
             />
             <span className="hidden whitespace-nowrap text-subheading font-semibold tracking-tight sm:inline">{nav.brand}</span>
           </Link>

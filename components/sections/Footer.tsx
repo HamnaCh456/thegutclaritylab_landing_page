@@ -11,7 +11,7 @@ export function Footer() {
         <Reveal className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
             <div className="flex items-center gap-3">
-              <Image src={footer.logo} alt="" width={64} height={64} className="h-16 w-16 mix-blend-multiply" />
+              <Image src={footer.logo} alt="" width={64} height={64} className="h-16 w-16 rounded-full mix-blend-multiply" />
               <p className="text-heading-sm font-semibold">{footer.brand}</p>
             </div>
             <p className="mt-4 text-body text-graphite-text">{footer.tagline}</p>

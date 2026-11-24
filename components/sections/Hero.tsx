@@ -57,7 +57,7 @@ export function Hero() {
               className="load-in mt-6 inline-flex items-center gap-2 text-body font-medium text-graphite-text underline-offset-4 hover:text-ink-black hover:underline"
               style={{ "--d": "850ms" } as CSSProperties}
             >
-              <Image src={nav.logo} alt="" width={24} height={24} className="h-6 w-6 mix-blend-multiply" />
+              <Image src={nav.logo} alt="" width={24} height={24} className="h-6 w-6 rounded-full mix-blend-multiply" />
               {hero.trustedLabel}
             </a>
           </div>

@@ -106,7 +106,7 @@ export function FinalCta({ copy = finalCta }: { copy?: CtaCopy }) {
       </div>
       <Container className="relative text-center">
         <Reveal>
-          <Image src={nav.logo} alt="" width={72} height={72} className="mx-auto h-18 w-18 mix-blend-multiply motion-safe:animate-float" />
+          <Image src={nav.logo} alt="" width={72} height={72} className="mx-auto h-18 w-18 rounded-full mix-blend-multiply motion-safe:animate-float" />
           <h2 id="start-title" className="mx-auto mt-6 max-w-2xl text-heading font-medium md:text-heading-lg">
             <Words text={copy.headline} />
           </h2>

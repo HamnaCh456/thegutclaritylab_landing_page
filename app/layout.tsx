@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   // Shared-link previews (no image yet: there is no fixed production domain for an absolute URL).
   openGraph: { title, description, siteName: "Gut Clarity Lab", type: "website" },
   twitter: { card: "summary", title, description },
-  icons: { icon: "/app/gcl-logo.jpeg" },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
