@@ -22,9 +22,11 @@ export const practitionerHero = {
 export const context = {
   eyebrow: "Full client context",
   headline: "Every client, in full context.",
-  lead: "Everything your client shares flows into one record. Sage reads all of it, so nothing slips between sessions.",
-  hub: "One client record",
-  hubSub: "Read by you and Sage",
+  lead: "As your client’s story grows, Sage connects the details to help you see patterns and prepare for each conversation.",
+  sageTagline: "More context. Deeper understanding.",
+  contextLabels: ["Their goals and priorities", "Their progress over time", "Patterns in everyday life", "Insights across their record"],
+  sageBenefit: "Connect the details. See what matters.",
+  sageFootnote: "A clearer picture for every conversation.",
   vision: {
     title: "Wellness vision",
     body: "Their goal, in their own words.",
@@ -61,11 +63,10 @@ export const context = {
       { name: "Bifidobacterium", status: "In range", tone: "green" },
     ] as { name: string; status: string; tone: "amber" | "green" }[],
   },
-  sageLabel: "Sage noticed",
   insights: [
-    "Bloating follows late, large dairy meals.",
-    "Energy is steadier on smoothie mornings.",
-    "Sleep improves when dinner is before 7pm.",
+    "Explore meal timing alongside their goal of eating out.",
+    "Bring their quiz progress into the next conversation.",
+    "Read their gut findings alongside their everyday experience.",
   ],
 };
 
@@ -102,7 +103,6 @@ export const reports = {
       body: "A detailed practitioner guide for you, and a plain-language guide for your client.",
     },
   ],
-  note: "Nothing reaches your client until you approve it.",
   // Rendered in gcl-app-main/gcl-report-film from the app's own screens; sample client.
   video: {
     src: "/video/practitioner-reports.mp4",

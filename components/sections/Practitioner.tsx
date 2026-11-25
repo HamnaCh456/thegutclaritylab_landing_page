@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import { clientExperience, consultSage, context, practitionerHero, privacy, reports, sessions, toolkit } from "@/content/practitioner";
-import { nav } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
 import { HeroVideo } from "@/components/ui/HeroVideo";
 import { LoopVideo } from "@/components/ui/LoopVideo";
@@ -89,20 +88,12 @@ export function PractitionerHero() {
   );
 }
 
-// ---------- Full client context: four live sources wired into one record ----------
+// ---------- Full client context: illustrative sources and Sage synthesis ----------
 
 const statusTone = { amber: "bg-apricot-cream text-warm-putty", green: "bg-mint-wash text-deep-moss" } as const;
 
 // Card position on the desktop diagram; below lg the cards sit in a plain grid.
 const sourcePos = ["lg:left-0 lg:top-1/4", "lg:left-0 lg:top-3/4", "lg:right-0 lg:top-1/4", "lg:right-0 lg:top-3/4"];
-
-// Connectors in a 1200×600 box, card edge → hub edge. A dot travels each one towards the hub.
-const connectors = [
-  "M336 150 C 450 150, 430 300, 500 300",
-  "M336 450 C 450 450, 430 300, 500 300",
-  "M864 150 C 750 150, 770 300, 700 300",
-  "M864 450 C 750 450, 770 300, 700 300",
-];
 
 function Source({ i, title, body, children }: { i: number; title: string; body: string; children: ReactNode }) {
   return (
@@ -147,44 +138,7 @@ export function ContextSection() {
           <p className="mx-auto mt-4 max-w-2xl text-subheading text-mint-wash/80">{c.lead}</p>
         </Reveal>
 
-        <Reveal variant="scale" className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:block lg:aspect-[2/1]">
-          <svg viewBox="0 0 1200 600" aria-hidden="true" className="absolute inset-0 hidden h-full w-full text-vivid-leaf lg:block">
-            {connectors.map((d, i) => (
-              <g key={d}>
-                <path d={d} fill="none" stroke="currentColor" strokeOpacity="0.2" strokeWidth="2" />
-                <path id={`ctx-line-${i}`} d={d} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="flow-line" />
-                <circle r="5" fill="currentColor" className="flow-dot">
-                  <animateMotion
-                    dur="2.4s"
-                    begin={`${i * 0.6}s`}
-                    repeatCount="indefinite"
-                    keyPoints="0;1"
-                    keyTimes="0;1"
-                    calcMode="spline"
-                    keySplines="0.4 0 0.2 1"
-                  >
-                    <mpath href={`#ctx-line-${i}`} />
-                  </animateMotion>
-                </circle>
-              </g>
-            ))}
-          </svg>
-
-          {/* The hub: first on small screens, centred in the diagram on desktop. */}
-          <div className="relative mx-auto mb-6 aspect-square w-48 sm:col-span-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[17%] lg:-translate-x-1/2 lg:-translate-y-1/2">
-            <span aria-hidden="true" className="ripple absolute inset-0 rounded-full border-2 border-vivid-leaf" />
-            <span
-              aria-hidden="true"
-              className="ripple absolute inset-0 rounded-full border-2 border-vivid-leaf"
-              style={{ "--d": "1800ms" } as CSSProperties}
-            />
-            <div className="hub-glow relative flex h-full w-full flex-col items-center justify-center rounded-full bg-forest-floor p-4 text-center ring-4 ring-vivid-leaf/30">
-              <Image src={nav.logo} alt="" width={48} height={48} className="h-10 w-10 rounded-full xl:h-12 xl:w-12" />
-              <p className="mt-2 font-display text-body leading-tight xl:text-subheading">{c.hub}</p>
-              <p className="mt-1 text-caption text-mint-wash/80">{c.hubSub}</p>
-            </div>
-          </div>
-
+        <Reveal variant="scale" className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:block lg:min-h-[500px] lg:aspect-[2/1]">
           <Source i={0} title={c.vision.title} body={c.vision.body}>
             <p className="font-display text-body italic leading-snug text-forest-floor xl:text-subheading">
               <span className="underline-sweep">{c.vision.quote}</span>
@@ -240,19 +194,30 @@ export function ContextSection() {
               ))}
             </ul>
           </Source>
-        </Reveal>
 
-        <Reveal className="mt-10 flex justify-center lg:mt-8">
-          <div className="flex max-w-full items-center gap-3 rounded-pills bg-paper-white/10 px-4 py-2.5 ring-1 ring-paper-white/15 backdrop-blur">
-            <Image src="/app/sage.svg" alt="" width={24} height={24} className="h-6 w-6 shrink-0 rounded-full bg-paper-white" />
-            <span className="shrink-0 text-legal font-semibold text-vivid-leaf">{c.sageLabel}</span>
-            <span className="grid text-legal text-paper-white sm:min-w-80">
-              {c.insights.map((t, i) => (
-                <span key={t} className="cycle-3 [grid-area:1/1]" style={{ "--i": i } as CSSProperties}>
-                  {t}
-                </span>
+          <div className="context-sage sm:col-span-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[34%] lg:-translate-x-1/2 lg:-translate-y-1/2">
+            <div className="flex items-center justify-center gap-3">
+              <Image src="/app/sage.svg" alt="" width={44} height={44} className="h-11 w-11 shrink-0" />
+              <h3 className="font-display text-heading font-medium">Sage</h3>
+            </div>
+            <p className="mt-2 text-center text-legal text-mint-wash">{c.sageTagline}</p>
+            <ul className="mt-6 grid gap-2" aria-label="Sage connects the client picture">
+              {c.contextLabels.map((label, i) => (
+                <li key={label} className="context-ribbon flex items-center justify-between gap-2 rounded-[6px] border-l-2 px-3 py-2.5 text-legal" style={seq(i)}>
+                  <span>{label}</span>
+                  <span aria-hidden="true" className="shrink-0 text-body leading-none">✓</span>
+                </li>
               ))}
-            </span>
+            </ul>
+            <div className="mt-6 border-t border-vivid-leaf/40 pt-5">
+              <p className="text-caption font-semibold uppercase tracking-wide text-mint-wash">{c.sageBenefit}</p>
+              <div className="mt-3 grid font-display text-subheading leading-snug xl:text-heading-sm">
+                {c.insights.map((insight, i) => (
+                  <p key={insight} className="context-insight cycle-3 [grid-area:1/1]" style={seq(i)}>{insight}</p>
+                ))}
+              </div>
+              <p className="mt-5 text-caption text-mint-wash">{c.sageFootnote}</p>
+            </div>
           </div>
         </Reveal>
       </Container>
@@ -311,7 +276,6 @@ export function ReportsSection() {
               </li>
             ))}
           </ol>
-          <p className="mt-6 text-legal font-medium text-warm-putty">{r.note}</p>
         </Reveal>
         <Reveal delay={120} variant="scale" className="lg:order-1">
           <div className="overflow-hidden rounded-images bg-deep-moss shadow-md">
