@@ -1,0 +1,987 @@
+/* Approved pricing design. All selectors are scoped to this section. */
+
+
+.pricing-page * {
+  scrollbar-width: thin;
+  scrollbar-color: #9aa797 transparent;
+}
+
+.pricing-page *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.pricing-page *::-webkit-scrollbar-thumb {
+  background: #9aa797;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 20px;
+}
+
+.pricing-page *::-webkit-scrollbar-button {
+  display: none;
+}
+
+.pricing-page [hidden] {
+  display: none!important;
+}
+
+.pricing-page a:focus-visible,.pricing-page button:focus-visible {
+  outline: 3px solid var(--color-warm-putty);
+  outline-offset: 5px;
+}
+
+.pricing-page button,.pricing-page a {
+  touch-action: manipulation;
+}
+
+.pricing-page .pricing-content {
+  padding-top: 46px!important;
+}
+
+.pricing-page .pricing-content h1 {
+  font-size: clamp(38px,4.3vw,62px);
+  max-width: 850px;
+  line-height: 1.04;
+}
+
+.pricing-page .pricing-content h1+p {
+  font-size: 18px;
+  margin-top: 20px;
+  max-width: 740px;
+}
+
+.pricing-page .plan-grid {
+  margin-top: 42px!important;
+  gap: 20px!important;
+  isolation: isolate;
+}
+
+.pricing-page .plan-card {
+  position: relative;
+  padding: 28px!important;
+  border: 1px solid #d9dfd1!important;
+  border-radius: 22px!important;
+  box-shadow: 0 4px 12px #1a3a2804;
+  background: var(--color-paper-white)!important;
+  cursor: pointer;
+  transition: background .55s cubic-bezier(.2,.7,.2,1),color .45s,border-color .45s,box-shadow .55s,transform .55s cubic-bezier(.2,.7,.2,1)!important;
+  transform: translateY(0)!important;
+}
+
+.pricing-page .plan-card h2 {
+  margin: 0;
+}
+
+.pricing-page .plan-choice {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pricing-page .plan-card p:nth-child(2) {
+  min-height: 48px;
+}
+
+.pricing-page .plan-card .animated-price {
+  font-variant-numeric: tabular-nums;
+  font-size: 58px;
+  line-height: 1.08;
+  margin-top: 24px;
+  transition: color .4s;
+}
+
+.pricing-page .plan-card .animated-price+p {
+  margin-top: 7px;
+}
+
+.pricing-page .plan-card>div {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-color: #dce0d2;
+  transition: border-color .4s;
+}
+
+.pricing-page .plan-card li {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pricing-page .plan-card p,.pricing-page .plan-card li,.pricing-page .plan-card svg {
+  transition: color .4s;
+}
+
+.pricing-page .plan-card a {
+  transition: background .35s,color .35s,box-shadow .35s,transform .35s;
+  border-color: var(--color-forest-floor)!important;
+}
+
+.pricing-page .plan-card a:hover {
+  background: var(--color-deep-moss)!important;
+  color: #fff!important;
+  transform: translateY(-2px);
+}
+
+@media(hover:hover){
+
+.pricing-page .plan-card:hover {
+  background: #edf2e8!important;
+  border-color: var(--color-vivid-leaf)!important;
+  box-shadow: 0 22px 46px -16px #1a3a2840;
+  transform: translateY(-12px)!important;
+}
+
+.pricing-page .plan-card:hover .animated-price {
+  color: var(--color-forest-floor);
+}
+
+.pricing-page .plan-card:hover a {
+  background: var(--color-forest-floor);
+  color: #fff;
+}
+}
+
+.pricing-page .plan-card:focus-within {
+  border-color: var(--color-forest-floor)!important;
+  box-shadow: 0 16px 36px -16px #1a3a2840;
+}
+
+.pricing-page .plan-card.chosen {
+  background: #254b39!important;
+  border-color: #254b39!important;
+  color: #fff;
+  box-shadow: 0 22px 46px -16px #1a3a2850;
+}
+
+.pricing-page .plan-card.chosen p,.pricing-page .plan-card.chosen li,.pricing-page .plan-card.chosen .animated-price,.pricing-page .plan-card.chosen svg {
+  color: #fff!important;
+}
+
+.pricing-page .plan-card.chosen>div {
+  border-color: #ffffff38;
+}
+
+.pricing-page .plan-card.chosen a {
+  background: var(--color-paper-white)!important;
+  color: #254b39!important;
+  border-color: var(--color-paper-white)!important;
+}
+
+.pricing-page .plan-card.chosen a:hover {
+  background: var(--color-mint-wash)!important;
+}
+
+.pricing-page .eyebrow {
+  font-size: 12px!important;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--color-forest-floor);
+  font-weight: 600;
+}
+
+.pricing-page .signature {
+  margin-top: 100px;
+  padding: 38px 32px 32px;
+  text-align: center;
+  background: #f8f9f5;
+  border: 1px solid #e0e5dc;
+  border-radius: 24px;
+}
+
+.pricing-page .signature h2 {
+  margin: 0;
+  font: 600 12px/1.4 var(--font-karla),sans-serif;
+  letter-spacing: .18em;
+  color: #586b5e;
+}
+
+.pricing-page .compare-intro h2 {
+  font: 500 clamp(42px,4.3vw,64px)/1.07 var(--font-fraunces),Georgia,serif;
+  letter-spacing: -.035em;
+  margin: 18px auto 0;
+}
+
+.pricing-page .compare-intro h2 em,.pricing-page .closing h2 em {
+  font-weight: 500;
+  color: var(--color-forest-floor);
+}
+
+.pricing-page .benefits {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  column-gap: 28px;
+  row-gap: 22px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.pricing-page .benefits:focus-visible {
+  outline: 3px solid var(--color-warm-putty);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+.pricing-page .benefit {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 12px 4px;
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity .7s,translate .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--benefit,0)*90ms);
+}
+
+.pricing-page .is-visible .signature .benefit {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.pricing-page .benefit:nth-child(2) {
+  --benefit: 1;
+}
+
+.pricing-page .benefit:nth-child(3) {
+  --benefit: 2;
+}
+
+.pricing-page .benefit:nth-child(4) {
+  --benefit: 3;
+}
+
+.pricing-page .benefit:nth-child(5) {
+  --benefit: 4;
+}
+
+.pricing-page .benefit:nth-child(6) {
+  --benefit: 5;
+}
+
+.pricing-page .benefit-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  height: 42px;
+  border: 1px solid #dfe6da;
+  border-radius: 13px;
+  background: #fff;
+  color: var(--color-forest-floor);
+  box-shadow: 0 2px 5px #1a3a2808;
+  transition: transform .25s,box-shadow .25s,border-color .25s,background .25s;
+}
+
+.pricing-page .benefit svg {
+  width: 22px;
+  height: 22px;
+}
+
+.pricing-page .benefit-copy {
+  min-width: 0;
+  transition: transform .25s;
+}
+
+.pricing-page .benefit h3 {
+  font: 600 16px/1.4 var(--font-karla),sans-serif;
+  color: var(--color-ink-black);
+}
+
+.pricing-page .benefit p {
+  margin-top: 5px;
+  color: var(--color-graphite-text);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 310px;
+}
+
+@media(hover:hover){
+
+.pricing-page .benefit:hover .benefit-icon {
+  transform: translateY(-3px);
+  border-color: #b9c9b4;
+  background: #edf2e8;
+  box-shadow: 0 6px 12px #1a3a2810;
+}
+
+.pricing-page .benefit:hover .benefit-copy {
+  transform: translateY(-2px);
+}
+}
+
+.pricing-page .compare-section {
+  margin-top: 116px!important;
+}
+
+.pricing-page .compare-intro {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.pricing-page .comparison {
+  --label: 40%;
+  --plan: 20%;
+  text-align: left;
+}
+
+.pricing-page .comparison-head {
+  display: grid;
+  grid-template-columns: var(--label) repeat(3,var(--plan));
+  align-items: stretch;
+  border-bottom: 1px solid #b9c9b4;
+}
+
+.pricing-page .compare-caption {
+  align-self: end;
+  padding: 24px 24px 25px 0;
+  color: var(--color-graphite-text);
+  font-size: 16px;
+}
+
+.pricing-page .compare-plan {
+  border: 0;
+  border-radius: 16px 16px 0 0;
+  background: transparent;
+  text-align: left;
+  padding: 26px 22px 24px;
+  cursor: pointer;
+  color: var(--color-ink-black);
+  transition: background .4s,color .4s,transform .4s;
+}
+
+.pricing-page .compare-plan>span:first-child {
+  font: 500 22px/1.2 var(--font-fraunces),Georgia,serif;
+  display: block;
+}
+
+.pricing-page .compare-plan strong {
+  font: 500 36px/1.2 var(--font-fraunces),Georgia,serif;
+  display: block;
+  margin: 12px 0 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pricing-page .compare-plan small {
+  font: 400 12px/1 var(--font-karla),sans-serif;
+  white-space: nowrap;
+}
+
+.pricing-page .compare-select {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.pricing-page .compare-plan:hover {
+  background: var(--color-mint-wash);
+  transform: translateY(-3px);
+}
+
+.pricing-page .compare-plan[aria-pressed=true] {
+  background: #254b39;
+  color: white;
+  transform: none;
+}
+
+.pricing-page .compare-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 24px 0 14px;
+}
+
+.pricing-page .compare-filters button {
+  font-size: 13px;
+  padding: 9px 13px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-graphite-text);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background .25s,color .25s,border-color .25s;
+}
+
+.pricing-page .compare-filters button:hover {
+  background: var(--color-mint-wash);
+  color: var(--color-deep-moss);
+}
+
+.pricing-page .compare-filters button[aria-pressed=true] {
+  background: var(--color-mint-wash);
+  border-color: #b9c9b4;
+  color: var(--color-deep-moss);
+}
+
+.pricing-page .compare-group-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-forest-floor);
+  padding: 28px 0 14px;
+  border-bottom: 1px solid #b9c9b4;
+}
+
+.pricing-page .comparison-row {
+  display: grid;
+  grid-template-columns: var(--label) repeat(3,var(--plan));
+  border-bottom: 1px solid #e5e6dc;
+  min-height: 58px;
+}
+
+.pricing-page .feature-label {
+  font-size: 15px;
+  color: var(--color-graphite-text);
+  padding: 18px 24px 18px 0;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-page .feature-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 14px;
+  font-size: 15px;
+  transition: background .45s;
+  color: var(--color-deep-moss);
+}
+
+.pricing-page .yes {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: var(--color-mint-wash);
+  border-radius: 50%;
+  color: var(--color-forest-floor);
+  font-size: 15px;
+}
+
+.pricing-page .no {
+  color: #65594d;
+}
+
+.pricing-page .comparison[data-active-plan="0"] [data-col="0"],.pricing-page .comparison[data-active-plan="1"] [data-col="1"],.pricing-page .comparison[data-active-plan="2"] [data-col="2"] {
+  background: var(--color-mint-wash);
+}
+
+.pricing-page .comparison[data-active-plan="0"] [data-col="0"] .yes,.pricing-page .comparison[data-active-plan="1"] [data-col="1"] .yes,.pricing-page .comparison[data-active-plan="2"] [data-col="2"] .yes {
+  background: var(--color-forest-floor);
+  color: #fff;
+}
+
+.pricing-page .comparison-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.pricing-page .comparison-bottom>span {
+  font-size: 13px;
+  color: var(--color-graphite-text);
+}
+
+.pricing-page .comparison-request {
+  display: inline-flex;
+  align-items: center;
+  gap: 26px;
+  color: var(--color-forest-floor);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-size: 15px;
+}
+
+.pricing-page .comparison-request:hover {
+  color: var(--color-deep-moss);
+}
+
+.pricing-page .faq-section {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 65px;
+  margin-top: 100px;
+  padding-top: 65px;
+  border-top: 1px solid var(--color-soft-mist);
+  text-align: left;
+}
+
+.pricing-page .faq-heading h2 {
+  font: 500 42px/1.08 var(--font-fraunces),Georgia,serif;
+  margin: 15px 0 18px;
+  max-width: 280px;
+}
+
+.pricing-page .faq-heading p {
+  color: var(--color-graphite-text);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.pricing-page .faq-heading a {
+  color: var(--color-forest-floor);
+  display: inline-block;
+  margin-top: 22px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.pricing-page .faq-heading a:hover {
+  color: var(--color-deep-moss);
+}
+
+.pricing-page .faq-item {
+  border-bottom: 1px solid #dedbce;
+}
+
+.pricing-page .faq-item:first-child {
+  border-top: 1px solid #dedbce;
+}
+
+.pricing-page .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 22px 0;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font: 500 18px/1.35 var(--font-karla),sans-serif;
+  color: var(--color-ink-black);
+}
+
+.pricing-page .faq-question:hover {
+  color: var(--color-forest-floor);
+}
+
+.pricing-page .faq-plus {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-mint-wash);
+  color: var(--color-forest-floor);
+  transition: transform .35s;
+}
+
+.pricing-page .faq-plus:before,.pricing-page .faq-plus:after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  left: 7px;
+  right: 7px;
+  top: 11px;
+  height: 1.5px;
+}
+
+.pricing-page .faq-plus:after {
+  transform: rotate(90deg);
+  transition: transform .3s;
+}
+
+.pricing-page .faq-question[aria-expanded=true] .faq-plus:after {
+  transform: rotate(0);
+}
+
+.pricing-page .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows .32s cubic-bezier(.2,.7,.2,1), visibility .32s;
+}
+
+.pricing-page .faq-answer p {
+  color: var(--color-graphite-text);
+  line-height: 1.65;
+  font-size: 16px;
+  margin: 0;
+  padding: 0 30px 23px 0;
+}
+
+.pricing-page .closing {
+  position: relative;
+  margin-top: 110px;
+  padding: 54px 0 34px;
+  text-align: center;
+}
+
+.pricing-page .closing h2 {
+  font: 500 clamp(42px,4.8vw,70px)/1.08 var(--font-fraunces),Georgia,serif;
+  max-width: 780px;
+  margin: 0 auto;
+  letter-spacing: -.035em;
+}
+
+.pricing-page .closing p {
+  margin-top: 24px;
+  color: var(--color-graphite-text);
+  font-size: 18px;
+}
+
+.pricing-page .closing a {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 30px;
+  background: var(--color-forest-floor);
+  border-radius: 12px;
+  color: #fff;
+  padding: 15px 24px;
+  transition: background .3s,transform .4s,box-shadow .4s;
+}
+
+.pricing-page .closing a:hover {
+  background: var(--color-deep-moss);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px #1a3a2825;
+}
+
+.pricing-page .reveal {
+  transition: opacity .7s ease,translate .8s cubic-bezier(.2,.7,.2,1),scale .8s cubic-bezier(.2,.7,.2,1)!important;
+  filter: none!important;
+}
+
+.pricing-page .reveal[data-v=scale] {
+  scale: .98;
+  translate: 0 24px;
+}
+
+.pricing-page .reveal.is-visible {
+  scale: 1;
+  translate: 0 0;
+}
+
+.pricing-page .stagger-item {
+  opacity: 1!important;
+  translate: none!important;
+}
+
+.pricing-page .count {
+  display: inline-block;
+  min-width: 1ch;
+}
+
+.pricing-page .blob {
+  animation: none!important;
+}
+
+@media(min-width:1024px){
+
+.pricing-page .plan-grid>div {
+  transition-delay: 0ms!important;
+}
+
+.pricing-page .plan-grid>div:nth-child(2) {
+  transition-delay: 120ms!important;
+}
+
+.pricing-page .plan-grid>div:nth-child(3) {
+  transition-delay: 240ms!important;
+}
+}
+
+@media(max-width:1023px){
+
+.pricing-page .comparison {
+  --label: 37%;
+  --plan: 21%;
+}
+
+.pricing-page .compare-plan {
+  padding: 22px 14px;
+}
+
+.pricing-page .compare-plan>span:first-child {
+  font-size: 19px;
+}
+
+.pricing-page .compare-plan strong {
+  font-size: 30px;
+}
+
+.pricing-page .compare-select {
+  font-size: 11px;
+}
+
+.pricing-page .benefits {
+  column-gap: 20px;
+}
+
+.pricing-page .signature {
+  padding: 32px 24px;
+}
+
+.pricing-page .benefit {
+  gap: 12px;
+}
+
+.pricing-page .faq-section {
+  gap: 32px;
+}
+
+.pricing-page .faq-heading h2 {
+  font-size: 36px;
+}
+}
+
+@media(max-width:639px){
+
+.pricing-page .pricing-content {
+  padding-top: 30px!important;
+}
+
+.pricing-page .pricing-content h1 {
+  font-size: 39px;
+}
+
+.pricing-page .pricing-content h1+p {
+  font-size: 16px;
+}
+
+.pricing-page .plan-grid {
+  margin-top: 30px!important;
+}
+
+.pricing-page .plan-card {
+  padding: 25px!important;
+}
+
+.pricing-page .plan-card p:nth-child(2) {
+  min-height: 0;
+}
+
+.pricing-page .signature {
+  margin-top: 72px;
+  padding: 28px 18px 20px;
+}
+
+.pricing-page .compare-intro h2 {
+  font-size: 43px;
+}
+
+.pricing-page .benefits {
+  grid-template-columns: repeat(3,240px);
+  gap: 16px 20px;
+  margin-top: 20px;
+  overflow-x: auto;
+  padding: 4px 4px 12px;
+  scroll-snap-type: x proximity;
+}
+
+.pricing-page .benefit {
+  scroll-snap-align: start;
+}
+
+.pricing-page .benefit p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.pricing-page .compare-section {
+  margin-top: 80px!important;
+}
+
+.pricing-page .compare-intro {
+  margin-bottom: 32px;
+}
+
+.pricing-page .comparison-head {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  border-bottom: 0;
+  gap: 4px;
+}
+
+.pricing-page .compare-caption {
+  display: none;
+}
+
+.pricing-page .compare-plan {
+  padding: 18px 9px;
+  border-radius: 12px;
+  text-align: center;
+  background: #f0f2e9;
+}
+
+.pricing-page .compare-plan>span:first-child {
+  font-size: 15px;
+}
+
+.pricing-page .compare-plan strong {
+  font-size: 28px;
+  margin: 10px 0 0;
+}
+
+.pricing-page .compare-plan small {
+  display: block;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.pricing-page .compare-select {
+  display: none;
+}
+
+.pricing-page .compare-filters {
+  padding: 20px 0 4px;
+  gap: 4px;
+}
+
+.pricing-page .compare-filters button {
+  font-size: 12px;
+  padding: 9px 10px;
+  min-height: 40px;
+}
+
+.pricing-page .comparison-row {
+  grid-template-columns: minmax(0,1fr) 112px;
+}
+
+.pricing-page .feature-value {
+  display: none;
+  padding: 16px 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.pricing-page .comparison[data-active-plan="0"] [data-col="0"],.pricing-page .comparison[data-active-plan="1"] [data-col="1"],.pricing-page .comparison[data-active-plan="2"] [data-col="2"] {
+  display: flex;
+}
+
+.pricing-page .feature-label {
+  font-size: 14px;
+  padding-right: 16px;
+}
+
+.pricing-page .compare-group-title {
+  font-size: 11px;
+}
+
+.pricing-page .comparison-bottom {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pricing-page .comparison-request {
+  font-size: 14px;
+}
+
+.pricing-page .faq-section {
+  grid-template-columns: 1fr;
+  margin-top: 72px;
+  padding-top: 36px;
+  gap: 30px;
+}
+
+.pricing-page .faq-heading h2 {
+  font-size: 36px;
+  max-width: none;
+}
+
+.pricing-page .faq-heading p {
+  max-width: none;
+}
+
+.pricing-page .faq-heading a {
+  margin-top: 12px;
+}
+
+.pricing-page .faq-question {
+  font-size: 17px;
+  padding: 19px 0;
+}
+
+.pricing-page .closing {
+  margin-top: 68px;
+  padding: 30px 0 12px;
+}
+
+.pricing-page .closing h2 {
+  font-size: 44px;
+}
+
+.pricing-page .closing p {
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+.pricing-page .closing a {
+  margin-top: 25px;
+}
+}
+
+@media(prefers-reduced-motion:reduce){
+
+.pricing-page *,.pricing-page *:before,.pricing-page *:after {
+  animation: none!important;
+  transition: none!important;
+}
+
+.pricing-page .reveal,.pricing-page .word,.pricing-page .load-in,.pricing-page .load-drop,.pricing-page .benefit {
+  opacity: 1!important;
+  transform: none!important;
+  translate: none!important;
+  scale: 1!important;
+}
+
+.pricing-page .plan-card:hover,.pricing-page .compare-plan:hover,.pricing-page .closing a:hover,.pricing-page .benefit:hover .benefit-icon,.pricing-page .benefit:hover .benefit-copy {
+  transform: none!important;
+}
+}
+
+.pricing-page {
+  background-color: var(--color-paper-white);
+}
+
+.pricing-page #compare, .pricing-page #faq {
+  scroll-margin-top: 100px;
+}
+
+.pricing-page .comparison-body, .pricing-page .compare-group {
+  display: block;
+  width: 100%;
+}
+
+.pricing-page .compare-group > tr:first-child, .pricing-page .compare-group-title {
+  display: block;
+}
+
+.pricing-page .feature-label {
+  font-weight: 400;
+}
+
+.pricing-page .faq-answer > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.pricing-page .faq-answer[data-open=true] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+
+@media(max-width:639px) {
+
+.pricing-page .comparison-body thead [data-col] {
+  display: none;
+}
+
+.pricing-page .comparison[data-active-plan="0"] thead [data-col="0"], .pricing-page .comparison[data-active-plan="1"] thead [data-col="1"], .pricing-page .comparison[data-active-plan="2"] thead [data-col="2"] {
+  display: table-cell;
+}
+}
+
