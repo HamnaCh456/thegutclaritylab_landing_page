@@ -7,6 +7,7 @@ import { LoopVideo } from "@/components/ui/LoopVideo";
 import { FitScale } from "@/components/ui/FitScale";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { SageQuestions } from "@/components/ui/SageQuestions";
 import { Words, seq } from "@/components/ui/Words";
 import { CheckCircle } from "@/components/icons";
 import { AppWindow } from "@/components/app/AppWindow";
@@ -139,6 +140,12 @@ export function ContextSection() {
         </Reveal>
 
         <Reveal variant="scale" className="relative mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:block lg:min-h-[500px] lg:aspect-[2/1]">
+          <svg className="context-connections pointer-events-none absolute inset-0 hidden h-full w-full lg:block" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M336 150 C375 150 365 240 408 240" />
+            <path d="M336 450 C375 450 365 380 408 380" />
+            <path d="M864 150 C825 150 835 240 792 240" />
+            <path d="M864 450 C825 450 835 380 792 380" />
+          </svg>
           <Source i={0} title={c.vision.title} body={c.vision.body}>
             <p className="font-display text-body italic leading-snug text-forest-floor xl:text-subheading">
               <span className="underline-sweep">{c.vision.quote}</span>
@@ -195,20 +202,13 @@ export function ContextSection() {
             </ul>
           </Source>
 
-          <div className="context-sage sm:col-span-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[34%] lg:-translate-x-1/2 lg:-translate-y-1/2">
+          <div className="context-sage relative sm:col-span-2 lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[34%] lg:-translate-x-1/2 lg:-translate-y-1/2">
             <div className="flex items-center justify-center gap-3">
               <Image src="/app/sage.svg" alt="" width={44} height={44} className="h-11 w-11 shrink-0" />
               <h3 className="font-display text-heading font-medium">Sage</h3>
             </div>
             <p className="mt-2 text-center text-legal text-mint-wash">{c.sageTagline}</p>
-            <ul className="mt-6 grid gap-2" aria-label="Sage connects the client picture">
-              {c.contextLabels.map((label, i) => (
-                <li key={label} className="context-ribbon flex items-center justify-between gap-2 rounded-[6px] border-l-2 px-3 py-2.5 text-legal" style={seq(i)}>
-                  <span>{label}</span>
-                  <span aria-hidden="true" className="shrink-0 text-body leading-none">✓</span>
-                </li>
-              ))}
-            </ul>
+            <SageQuestions questions={c.questions} />
             <div className="mt-6 border-t border-vivid-leaf/40 pt-5">
               <p className="text-caption font-semibold uppercase tracking-wide text-mint-wash">{c.sageBenefit}</p>
               <div className="mt-3 grid font-display text-subheading leading-snug xl:text-heading-sm">
