@@ -35,7 +35,7 @@ export const pricingQuestions = [
   { question: "What is included in every tier?", answer: "Every tier includes the 12-week Gut Clarity Lab journey, full recipe library, full Practitioner Corner, Sage support, microbiome test interpretation and guides, daily check-ins, progress tracking, session prep, notes, and messaging." },
   { question: "Which tier fits my practice?", answer: "Practitioner supports up to 10 active clients. Practice is for more than 10 and adds monthly GCL practitioner calls and branded recipes. Partner adds a branded client experience, SMS messaging, branded recipe PDFs, GCL Conference access, and a monthly case check-in with Anu." },
   { question: "How do I get started?", answer: "GCL is in beta and access is by invitation. Choose “Request access” on the tier that fits your practice. This opens an email to the GCL team with your chosen tier. You can also book a walkthrough first." },
-  { question: "Can I see GCL before requesting access?", answer: "Yes. Select “Book a walkthrough” to email the GCL team and arrange a guided look at the platform." },
+  { question: "Can I see GCL before requesting access?", answer: "Yes. Select “Book a walkthrough” to open the booking page and arrange a guided look at the platform." },
   { question: "What currency are the prices in?", answer: "The displayed prices are per month, billed in US dollars: $69 for Practitioner, $89 for Practice, and $119 for Partner." },
   { question: "Does every tier include Sage and test interpretation?", answer: "Yes. Sage support and microbiome test interpretation with practitioner and client guides are included in all three tiers." },
 ];

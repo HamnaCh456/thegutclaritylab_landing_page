@@ -12,8 +12,7 @@ export const site = {
   terms: `${app}/terms`,
   support: `${app}/support`,
   contact,
-  // No booking calendar yet, so a walkthrough request is an email. Swap in the calendar URL here
-  // and every "Book a walkthrough" button on the site follows.
-  walkthrough: mail("GCL practitioner walkthrough"),
+  // Shared booking destination for every "Book a walkthrough" button on the site.
+  walkthrough: "https://www.9armsofwellness.com/gcl-app",
   mail,
 };
